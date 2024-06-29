@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioinformática</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+        <div class="header">
+            
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 15c6.667-6 13.333 0 20-6" />
+                <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993" />
+                <path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993" />
+                <path d="m17 6-2.5-2.5" />
+                <path d="m14 8-1-1" />
+                <path d="m7 18 2.5 2.5" />
+                <path d="m3.5 14.5.5.5" />
+                <path d="m20 9 .5.5" />
+                <path d="m6.5 12.5 1 1" />
+                <path d="m16.5 10.5 1 1" />
+                <path d="m10 16 1.5 1.5" />
+            </svg>
+            <h2>Bioinformatics </h2>
+            
+        </div>
+            <form action="/analizar" method="post">
+                <label for="operation">Operación:</label>
+                <select id="operation" name="operation">
+                    <option value="mayusculas" {% if operation == 'mayusculas' %} selected {% endif %}>Mostrar en mayúsculas</option>
+                    <option value="coincidencias" {% if operation == 'coincidencias' %} selected {% endif %}>Encontrar coincidencias</option>
+                </select><br><br>
+                <label for="sequence1">Secuencia 1:</label>
+                <input type="text" id="sequence1" name="sequence1"placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
+                <label for="sequence2">Secuencia 2:</label>
+                <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
+            
+                
+                <input id="analyzeButton" type="submit" value="Analizar">
+                
+            </form>
+        </div>
+        <div class="result-container">
+            {% block content %}{% endblock %}
+        </div>
+        
+    </div>
+</body>
+</html>

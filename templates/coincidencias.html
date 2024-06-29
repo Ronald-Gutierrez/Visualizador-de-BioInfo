@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+<style>
+    .green-text {
+        color: green;
+    }       
+</style>
+{% block content %}
+    <h2>Resultados de coincidencias</h2>
+    <p>Primer input: {{ sequence1 }}</p>
+    <p>Segundo input: {{ sequence2 }}</p>
+    
+    <p>Letras coincidentes:</p>
+    <ul>
+        {% for letter in result %}
+            {{ letter }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

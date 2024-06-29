@@ -1,0 +1,109 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.header {
+    display: flex;
+    align-items: center;
+  }
+  
+.form-container {
+    width: 15%;
+    height: 90vh;
+    background-color: #fff;
+    color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #2c3e50;
+
+}
+
+.result-container {
+    width: 80%;
+    height: 90vh;
+    background-color: #bbb9b979;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Estilo para las opciones del select */
+select option {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilo para las etiquetas de operación */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #9aa09a;
+}
+
+/* ESTILOS DE LA NUEVA VENTANA */
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+
+#analyzeButton {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
