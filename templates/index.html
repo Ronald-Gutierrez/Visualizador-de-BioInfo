@@ -17,7 +17,7 @@
                 extraInputs.innerHTML = "";
 
                 // Add extra inputs based on the selected operation
-                if (operation === "Identificador de Substrings en Secuencias") {
+                if (operation === "sub_cadena") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
                         <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
@@ -25,7 +25,7 @@
                         <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
                     `;
                 }
-                else if (operation === "transcripcion") {
+                else if (operation === "transcripcion_adn_arn") {
                     extraInputs.innerHTML = `
                         <label for="sequence">Secuencia:</label>
                         <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
@@ -133,11 +133,11 @@
                 <label for="operation">Operación:</label>
                 <select id="operation" name="operation" onchange="showInputs()">
                     <option value="" {% if operation == '' %} selected {% endif %}>Seleccione una operación</option>
-                    <option value="mayusculas" {% if operation == 'mayusculas' %} selected {% endif %}>Mostrar en mayúsculas</option>
-                    <option value="coincidencias" {% if operation == 'coincidencias' %} selected {% endif %}>Encontrar coincidencias</option>
-                    <option value="transcripcion" {% if operation =='transcripcion' %} selected {% endif %}>Transcripción de Cadenas</option>
+                    <!-- <option value="mayusculas" {% if operation == 'mayusculas' %} selected {% endif %}>Mostrar en mayúsculas</option>
+                    <option value="coincidencias" {% if operation == 'coincidencias' %} selected {% endif %}>Encontrar coincidencias</option> -->
                     <option value="identificar_secuencia" {% if operation =='identificar_secuencia' %} selected {% endif %} >Identificador de Secuencia</option>
-                    <option value="Identificador de Substrings en Secuencias">Identificador de Substrings en Secuencias</option>
+                    <option value="transcripcion_adn_arn" {% if operation =='transcripcion_adn_arn' %} selected {% endif %}>Transcripción de ADN</option>
+                    <option value="sub_cadena" {% if operation =='sub_cadena' %} selected {% endif %} >Identificador de Substrings en Secuencias</option>
                     <option value="Alineamiento Global">Alineamiento Global</option>
                     <option value="Alineamiento Local">Alineamiento Local</option>
                     <option value="Alineamiento Estrella">Alineamiento Estrella</option>
@@ -149,7 +149,7 @@
                 <div id="input-container" {% if operation == '' %}style="display:none;"{% endif %}>
 
                     <div id="extra-inputs">
-                        {% if operation == 'transcripcion' %}
+                        {% if operation == 'transcripcion_adn_arn' %}
                             <label for="sequence">Secuencia:</label>
                             <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
                         {% endif %}
@@ -169,7 +169,7 @@
                             <label for="sequence2">Secuencia 2:</label>
                             <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
                         {% endif %}
-                        {% if operation == 'Identificador de Substrings en Secuencias' %}
+                        {% if operation == 'sub_cadena' %}
                             <label for="sequence1">Secuencia 1:</label>
                             <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
                             <label for="sequence2">Secuencia 2:</label>
