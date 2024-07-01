@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    pre {
+        font-size: 1.2em; /* Tamaño de letra más grande */
+    }
+</style>
+
+<h2>Secuencias ingresadas</h2>
+    <p>La secuencia 1 es: {{ sequence1 }}</p>
+    <p>La secuencia 2 es: {{ sequence2 }}</p>
+
+<h2>Score del Alineamiento Global</h2>
+    <p>El score total es: {{ score }}</p>
+
+<h2>Alineaciones</h2>
+    <p>Alineaciones posibles:</p>
+    <ul>
+        {% for alignment in alienaciones %}
+        <li>
+            <pre>{{ alignment[0] }}</pre>
+            <pre>{{ alignment[1] }}</pre>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
