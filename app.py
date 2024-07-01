@@ -6,6 +6,7 @@ from algorithms.idenntificador_secuencia import identificar_secuencia  # type: i
 from algorithms.transcripcion import transcripcion_adn_arn  # type: ignore
 from algorithms.sub_cadena import buscar_subcadena  # type: ignore
 from algorithms.sub_cadena import calcular_score  # type: ignore
+from algorithms.alineamiento_global import needleman_wunsch_score_matrix  # type: ignore
 
 
 app = Flask(__name__)
@@ -21,6 +22,9 @@ def analizar():
     sequence2 = request.form.get('sequence2', '')
     sequence = request.form.get('sequence', '')
     # sequence_trans = request.form.get('sequence_trans', '')
+    match = request.form.get('match', '')
+    mismatch = request.form.get('mismatch', '')
+    gap = request.form.get('gap', '')
 
     operation = request.form.get('operation', '')
 
@@ -47,6 +51,10 @@ def analizar():
         score = calcular_score(sequence1, sequence2)
         sub_cadena = buscar_subcadena(sequence1, sequence2)
         return render_template('sub_cadena.html', score=score, sub_cadena=sub_cadena, sequence1=sequence1, sequence2=sequence2, operation=operation)
+    elif operation == 'needleman_wunsch':
+        # Llamar a la función de alineamiento global
+        result = needleman_wunsch_score_matrix(sequence1, sequence2, match, mismatch, gap)
+        return render_template('alineamiento_global.html', result=result, sequence1=sequence1, sequence2=sequence2, operation=operation)
     
     return render_template('index.html')
 

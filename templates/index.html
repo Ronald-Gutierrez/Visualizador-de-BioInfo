@@ -53,20 +53,21 @@
                         <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
                     `;
                 }
-                else if (operation === "Alineamiento Global" || operation === "Alineamiento Local") {
+                else if (operation === "needleman_wunsch" || operation === "Alineamiento Local") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
                         <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
                         <label for="sequence2">Secuencia 2:</label>
                         <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
                         <label for="match">Match:</label>
-                        <input type="text" id="match" name="match" placeholder="Ingrese match" value="{{ match }}"><br><br>
+                        <input type="number" id="match" name="match" placeholder="Ingrese match" value="{{ match }}"><br><br>
                         <label for="mismatch">Mismatch:</label>
-                        <input type="text" id="mismatch" name="mismatch" placeholder="Ingrese mismatch" value="{{ mismatch }}"><br><br>
+                        <input type="number" id="mismatch" name="mismatch" placeholder="Ingrese mismatch" value="{{ mismatch }}"><br><br>
                         <label for="gap">Gap:</label>
-                        <input type="text" id="gap" name="gap" placeholder="Ingrese gap" value="{{ gap }}"><br><br>
+                        <input type="number" id="gap" name="gap" placeholder="Ingrese gap" value="{{ gap }}"><br><br>
                     `;
                 }
+
                 else if (operation === "Clustering Distancia Mínima" || operation === "Clustering Distancia Máxima" || operation === "Clustering Distancia Promedio") {
                     extraInputs.innerHTML = `
                         <label for="matrix">Matriz de distancia:</label>
@@ -138,7 +139,7 @@
                     <option value="identificar_secuencia" {% if operation =='identificar_secuencia' %} selected {% endif %} >Identificador de Secuencia</option>
                     <option value="transcripcion_adn_arn" {% if operation =='transcripcion_adn_arn' %} selected {% endif %}>Transcripción de ADN</option>
                     <option value="sub_cadena" {% if operation =='sub_cadena' %} selected {% endif %} >Identificador de Substrings en Secuencias</option>
-                    <option value="Alineamiento Global">Alineamiento Global</option>
+                    <option value="needleman_wunsch" {% if operation =='needleman_wunsch' %} selected {% endif %}">Alineamiento Global</option>
                     <option value="Alineamiento Local">Alineamiento Local</option>
                     <option value="Alineamiento Estrella">Alineamiento Estrella</option>
                     <option value="Clustering Distancia Mínima">Clustering Distancia Mínima</option>
@@ -181,11 +182,11 @@
                             <label for="sequence2">Secuencia 2:</label>
                             <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
                             <label for="match">Match:</label>
-                            <input type="text" id="match" name="match" placeholder="Ingrese match" value="{{ match }}"><br><br>
+                            <input type="number" id="match" name="match" placeholder="Ingrese match" value="{{ match }}"><br><br>
                             <label for="mismatch">Mismatch:</label>
-                            <input type="text" id="mismatch" name="mismatch" placeholder="Ingrese mismatch" value="{{ mismatch }}"><br><br>
+                            <input type="number" id="mismatch" name="mismatch" placeholder="Ingrese mismatch" value="{{ mismatch }}"><br><br>
                             <label for="gap">Gap:</label>
-                            <input type="text" id="gap" name="gap" placeholder="Ingrese gap" value="{{ gap }}"><br><br>
+                            <input type="number" id="gap" name="gap" placeholder="Ingrese gap" value="{{ gap }}"><br><br>
                         {% endif %}
                         {% if operation == 'Clustering Distancia Mínima' or operation == 'Clustering Distancia Máxima' or operation == 'Clustering Distancia Promedio' %}
                             <label for="matrix">Matriz de distancia:</label>
