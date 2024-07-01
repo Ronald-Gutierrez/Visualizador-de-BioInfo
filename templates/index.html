@@ -25,13 +25,13 @@
                         <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
                     `;
                 }
-                else if (operation === "Transcripción de Cadenas") {
+                else if (operation === "transcripcion") {
                     extraInputs.innerHTML = `
                         <label for="sequence">Secuencia:</label>
                         <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
                     `;
                 }
-                else if (operation === "Identificador de Secuencia") {
+                else if (operation === "identificar_secuencia") {
                     extraInputs.innerHTML = `
                         <label for="sequence">Secuencia:</label>
                         <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
@@ -135,8 +135,8 @@
                     <option value="" {% if operation == '' %} selected {% endif %}>Seleccione una operación</option>
                     <option value="mayusculas" {% if operation == 'mayusculas' %} selected {% endif %}>Mostrar en mayúsculas</option>
                     <option value="coincidencias" {% if operation == 'coincidencias' %} selected {% endif %}>Encontrar coincidencias</option>
-                    <option value="Transcripción de Cadenas">Transcripción de Cadenas</option>
-                    <option value="Identificador de Secuencia">Identificador de Secuencia</option>
+                    <option value="transcripcion" {% if operation =='transcripcion' %} selected {% endif %}>Transcripción de Cadenas</option>
+                    <option value="identificar_secuencia" {% if operation =='identificar_secuencia' %} selected {% endif %} >Identificador de Secuencia</option>
                     <option value="Identificador de Substrings en Secuencias">Identificador de Substrings en Secuencias</option>
                     <option value="Alineamiento Global">Alineamiento Global</option>
                     <option value="Alineamiento Local">Alineamiento Local</option>
@@ -149,7 +149,7 @@
                 <div id="input-container" {% if operation == '' %}style="display:none;"{% endif %}>
 
                     <div id="extra-inputs">
-                        {% if operation == 'Transcripción de Cadenas' %}
+                        {% if operation == 'transcripcion' %}
                             <label for="sequence">Secuencia:</label>
                             <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
                         {% endif %}

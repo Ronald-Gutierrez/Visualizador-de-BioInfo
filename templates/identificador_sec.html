@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2>Resultados de la Secuencia Ingresada</h2>
+<p>Secuencia Ingresada: {{ sequence }}</p>
+{% if result == "ADN" or result == "ARN" %}
+    <p>Tu secuencia ingresada es un {{ result }}.</p>
+{% elif result == "Proteína" %}
+    <p>Tu secuencia ingresada es una proteína.</p>
+{% else %}
+    <p>Secuencia no reconocida.</p>
+{% endif %}
+{% endblock %}
+``
