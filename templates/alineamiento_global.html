@@ -5,23 +5,61 @@
     pre {
         font-size: 1.2em; /* Tamaño de letra más grande */
     }
+
+    .green-bg { background-color: green; color: white; }
+    .yellow-bg { background-color: yellow; color: black; }
+    .red-bg { background-color: red; color: white; }
+    .blue-bg { background-color: blue; color: white; }
+    .pink-bg { background-color: pink; color: black; }
 </style>
 
 <h2>Secuencias ingresadas</h2>
-    <p>La secuencia 1 es: {{ sequence1 }}</p>
-    <p>La secuencia 2 es: {{ sequence2 }}</p>
+<p>La secuencia 1 es: {{ sequence1 }}</p>
+<p>La secuencia 2 es: {{ sequence2 }}</p>
 
 <h2>Score del Alineamiento Global</h2>
-    <p>El score total es: {{ score }}</p>
+<p>El score total es: {{ score }}</p>
 
 <h2>Alineaciones</h2>
-    <p>Alineaciones posibles:</p>
-    <ul>
-        {% for alignment in alienaciones %}
-        <li>
-            <pre>{{ alignment[0] }}</pre>
-            <pre>{{ alignment[1] }}</pre>
-        </li>
-        {% endfor %}
-    </ul>
+<p>Alineaciones posibles:</p>
+<ul>
+    {% for alignment in alienaciones %}
+    <li>
+        <pre style="white-space: nowrap;">
+            {% for char in alignment[0] %}
+                {% if char == 'A' %}
+                    <span class="green-bg">{{ char }}</span>
+                {% elif char == 'C' %}
+                    <span class="yellow-bg">{{ char }}</span>
+                {% elif char == 'G' %}
+                    <span class="red-bg">{{ char }}</span>
+                {% elif char == 'T' %}
+                    <span class="blue-bg">{{ char }}</span>
+                {% elif char == 'U' %}
+                    <span class="pink-bg">{{ char }}</span>
+                {% else %}
+                    {{ char }}
+                {% endif %}
+            {% endfor %}
+        </pre>
+        <pre style="white-space: nowrap;">
+            {% for char in alignment[1] %}
+                {% if char == 'A' %}
+                    <span class="green-bg">{{ char }}</span>
+                {% elif char == 'C' %}
+                    <span class="yellow-bg">{{ char }}</span>
+                {% elif char == 'G' %}
+                    <span class="red-bg">{{ char }}</span>
+                {% elif char == 'T' %}
+                    <span class="blue-bg">{{ char }}</span>
+                {% elif char == 'U' %}
+                    <span class="pink-bg">{{ char }}</span>
+                {% else %}
+                    {{ char }}
+                {% endif %}
+            {% endfor %}
+        </pre>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}

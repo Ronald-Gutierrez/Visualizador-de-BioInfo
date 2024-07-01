@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from algorithms.mayusculas import transform_to_uppercase  # type: ignore
 from algorithms.mayusculas import transform_to_lowecase  # type: ignore
 from algorithms.coincidencias import find_coincidences  # type: ignore
-from algorithms.idenntificador_secuencia import identificar_secuencia  # type: ignore
+from algorithms.identificador_secuencia import identificar_secuencia  # type: ignore
 from algorithms.transcripcion import transcripcion_adn_arn  # type: ignore
 from algorithms.sub_cadena import buscar_subcadena  # type: ignore
 from algorithms.sub_cadena import calcular_score  # type: ignore
