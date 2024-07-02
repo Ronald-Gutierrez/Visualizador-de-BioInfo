@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,10 +54,10 @@
                         <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
                     `;
                 }
-                else if (operation === "needleman_wunsch" || operation === "Alineamiento Local") {
+                else if (operation === "needleman_wunsch" || operation === "smith_waterman") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese una secuencia" value="{{ sequence1 }}"><br><br>
                         <label for="sequence2">Secuencia 2:</label>
                         <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
                         <label for="match">Match:</label>
@@ -92,14 +93,14 @@
             }
         }
         function addMoreInputs() {
-                    const additionalInputs = document.getElementById("additionalInputs");
-                    const newInput = document.createElement('div');
-                    newInput.innerHTML = `
+            const additionalInputs = document.getElementById("additionalInputs");
+            const newInput = document.createElement('div');
+            newInput.innerHTML = `
                         <label for="sequenceX">Secuencia:</label>
                         <input type="text" id="sequenceX" name="sequenceX" placeholder="Ingrese su secuencia"><br><br>
                     `;
-                    additionalInputs.appendChild(newInput);
-                }
+            additionalInputs.appendChild(newInput);
+        }
         window.addEventListener('DOMContentLoaded', (event) => {
             const operation = document.getElementById("operation").value;
             if (operation === "") {
@@ -111,11 +112,13 @@
         });
     </script>
 </head>
+
 <body>
     <div class="container">
         <div class="form-container">
             <div class="header">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M2 15c6.667-6 13.333 0 20-6" />
                     <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993" />
                     <path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993" />
@@ -133,77 +136,27 @@
             <form action="/analizar" method="post">
                 <label for="operation">Operación:</label>
                 <select id="operation" name="operation" onchange="showInputs()">
-                    <option value="" {% if operation == '' %} selected {% endif %}>Seleccione una operación</option>
+                    <option value="" {% if operation=='' %} selected {% endif %}>Seleccione una operación</option>
                     <!-- <option value="mayusculas" {% if operation == 'mayusculas' %} selected {% endif %}>Mostrar en mayúsculas</option>
                     <option value="coincidencias" {% if operation == 'coincidencias' %} selected {% endif %}>Encontrar coincidencias</option> -->
-                    <option value="identificar_secuencia" {% if operation =='identificar_secuencia' %} selected {% endif %} >Identificador de Secuencia</option>
-                    <option value="transcripcion_adn_arn" {% if operation =='transcripcion_adn_arn' %} selected {% endif %}>Transcripción de ADN</option>
-                    <option value="sub_cadena" {% if operation =='sub_cadena' %} selected {% endif %} >Identificador de Substrings en Secuencias</option>
-                    <option value="needleman_wunsch" {% if operation =='needleman_wunsch' %} selected {% endif %}">Alineamiento Global</option>
-                    <option value="Alineamiento Local">Alineamiento Local</option>
+                    <option value="identificar_secuencia" {% if operation=='identificar_secuencia' %} selected {% endif
+                        %}>Identificador de Secuencia</option>
+                    <option value="transcripcion_adn_arn" {% if operation=='transcripcion_adn_arn' %} selected {% endif
+                        %}>Transcripción de ADN</option>
+                    <option value="sub_cadena" {% if operation=='sub_cadena' %} selected {% endif %}>Identificador de
+                        Substrings en Secuencias</option>
+                    <option value="needleman_wunsch" {% if operation=='needleman_wunsch' %} selected {% endif %}">
+                        Alineamiento Global</option>
+                    <option value="smith_waterman">Alineamiento Local</option>
                     <option value="Alineamiento Estrella">Alineamiento Estrella</option>
                     <option value="Clustering Distancia Mínima">Clustering Distancia Mínima</option>
                     <option value="Clustering Distancia Máxima">Clustering Distancia Máxima</option>
                     <option value="Clustering Distancia Promedio">Clustering Distancia Promedio</option>
                 </select><br><br>
-                
-                <div id="input-container" {% if operation == '' %}style="display:none;"{% endif %}>
+
+                <div id="input-container" {% if operation=='' %}style="display:none;" {% endif %}>
 
                     <div id="extra-inputs">
-                        {% if operation == 'transcripcion_adn_arn' %}
-                            <label for="sequence">Secuencia:</label>
-                            <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
-                        {% endif %}
-                        {% if operation == 'Identificador de Secuencia' %}
-                            <label for="sequence">Secuencia:</label>
-                            <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
-                        {% endif %}
-                        {% if operation == 'mayusculas' %}
-                            <label for="sequence1">Secuencia 1:</label>
-                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
-                            <label for="sequence2">Secuencia 2:</label>
-                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
-                        {% endif %}
-                        {% if operation == 'coincidencias' %}
-                            <label for="sequence1">Secuencia 1:</label>
-                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
-                            <label for="sequence2">Secuencia 2:</label>
-                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
-                        {% endif %}
-                        {% if operation == 'sub_cadena' %}
-                            <label for="sequence1">Secuencia 1:</label>
-                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
-                            <label for="sequence2">Secuencia 2:</label>
-                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
-                        {% endif %}
-                        {% if operation == 'Alineamiento Global' or operation == 'Alineamiento Local' %}
-                            <label for="sequence1">Secuencia 1:</label>
-                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
-                            <label for="sequence2">Secuencia 2:</label>
-                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
-                            <label for="match">Match:</label>
-                            <input type="number" id="match" name="match" placeholder="Ingrese match" value="{{ match }}"><br><br>
-                            <label for="mismatch">Mismatch:</label>
-                            <input type="number" id="mismatch" name="mismatch" placeholder="Ingrese mismatch" value="{{ mismatch }}"><br><br>
-                            <label for="gap">Gap:</label>
-                            <input type="number" id="gap" name="gap" placeholder="Ingrese gap" value="{{ gap }}"><br><br>
-                            
-                        {% endif %}
-                        {% if operation == 'Clustering Distancia Mínima' or operation == 'Clustering Distancia Máxima' or operation == 'Clustering Distancia Promedio' %}
-                            <label for="matrix">Matriz de distancia:</label>
-                            <textarea id="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia"></textarea>
-                        {% endif %}
-                        {% if operation == 'Alineamiento Estrella' %}
-                            <label for="sequence1">Secuencia 1:</label>
-                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
-                            <label for="sequence2">Secuencia 2:</label>
-                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
-                            <div id="additionalInputs">
-                                <!-- Aquí se agregarán dinámicamente los nuevos inputs -->
-                            </div>
-                            <button id="analyzeButtonStart" type="button" onclick="addMoreInputs()">Agregar más inputs</button>
-                        {% endif %}
-                        
                     </div>
                 </div>
 
@@ -215,4 +168,5 @@
         </div>
     </div>
 </body>
+
 </html>

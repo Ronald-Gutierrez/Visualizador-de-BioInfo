@@ -6,14 +6,17 @@ from algorithms.identificador_secuencia import identificar_secuencia  # type: ig
 from algorithms.transcripcion import transcripcion_adn_arn  # type: ignore
 from algorithms.sub_cadena import buscar_subcadena  # type: ignore
 from algorithms.sub_cadena import calcular_score  # type: ignore
-from algorithms.alineamiento_global import needleman_wunsch_score,needleman_wunsch_alignment  # type: ignore
+from algorithms.alineamiento_global import needleman_wunsch_score, needleman_wunsch_alignment  # type: ignore
+from algorithms.local_alignment import smith_waterman
 
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/analizar', methods=['POST'])
 def analizar():
@@ -47,13 +50,23 @@ def analizar():
         match = int(match)
         mismatch = int(mismatch)
         gap = int(gap)
-        
+
         # Llamar a la función de alineamiento global
-        score = needleman_wunsch_score(sequence1, sequence2, match, mismatch, gap)
-        alienaciones = needleman_wunsch_alignment(sequence1, sequence2, match, mismatch, gap)
-        return render_template('alineamiento_global.html', score=score, alienaciones=alienaciones, sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap,operation=operation)
-    
+        score = needleman_wunsch_score(
+            sequence1, sequence2, match, mismatch, gap)
+        alienaciones = needleman_wunsch_alignment(
+            sequence1, sequence2, match, mismatch, gap)
+        return render_template('alineamiento_global.html', score=score, alienaciones=alienaciones, sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, operation=operation)
+    elif operation == 'smith_waterman':
+        match = int(match)
+        mismatch = int(mismatch)
+        gap = int(gap)
+
+        result = smith_waterman(sequence1, sequence2, match, mismatch, gap)
+        size = len(result)
+        return render_template('local_alignment.html', sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, result=result, size=size)
     return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
