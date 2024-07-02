@@ -71,11 +71,11 @@
 
                 else if (operation === "Clustering Distancia Mínima" || operation === "Clustering Distancia Máxima" || operation === "Clustering Distancia Promedio") {
                     extraInputs.innerHTML = `
-                        <label for="matrix">Matriz de distancia:</label>
-                        <textarea id="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia"></textarea>
+                        <label for="distanceMatrix">Matriz de distancia:</label>
+                        <textarea id="distanceMatrix" name="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia"></textarea>
                     `;
                 }
-                else if (operation === "Alineamiento Estrella") {
+                else if (operation === "star_alignment") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
                         <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
@@ -147,8 +147,9 @@
                         Substrings en Secuencias</option>
                     <option value="needleman_wunsch" {% if operation=='needleman_wunsch' %} selected {% endif %}">
                         Alineamiento Global</option>
-                    <option value="smith_waterman">Alineamiento Local</option>
-                    <option value="Alineamiento Estrella">Alineamiento Estrella</option>
+                    <option value="smith_waterman" {% if operation=='smith_waterman' %} selected {% endif %}>
+                        Alineamiento Local</option>
+                    <option value="star_alignment">Alineamiento Estrella</option>
                     <option value="Clustering Distancia Mínima">Clustering Distancia Mínima</option>
                     <option value="Clustering Distancia Máxima">Clustering Distancia Máxima</option>
                     <option value="Clustering Distancia Promedio">Clustering Distancia Promedio</option>

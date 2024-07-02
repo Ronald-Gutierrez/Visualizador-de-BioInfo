@@ -8,6 +8,7 @@ from algorithms.sub_cadena import buscar_subcadena  # type: ignore
 from algorithms.sub_cadena import calcular_score  # type: ignore
 from algorithms.alineamiento_global import needleman_wunsch_score, needleman_wunsch_alignment  # type: ignore
 from algorithms.local_alignment import smith_waterman
+from algorithms.clustering import clustering
 
 
 app = Flask(__name__)
@@ -65,6 +66,19 @@ def analizar():
         result = smith_waterman(sequence1, sequence2, match, mismatch, gap)
         size = len(result)
         return render_template('local_alignment.html', sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, result=result, size=size)
+
+    elif operation == 'Clustering Distancia Mínima':
+        matrix_input = request.form.get("distanceMatrix")
+        matrix = []
+        for row in matrix_input.splitlines():
+            # Split each row by spaces and convert to integers
+            matrix.append([float(num) for num in row.split()])
+        clustering_result, matrices, min_distances = clustering(
+            matrix, 'minimo')
+        size = len(min_distances)
+        result = list(enumerate(
+            zip(clustering_result, matrices, min_distances), start=1))
+        return render_template("single_linkage.html", matrix=matrix, result=result)
     return render_template('index.html')
 
 
