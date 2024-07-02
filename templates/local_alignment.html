@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    pre {
+        font-size: 1.2em;
+        /* Tamaño de letra más grande */
+    }
+
+    .green-bg {
+        background-color: green;
+        color: white;
+    }
+
+    .yellow-bg {
+        background-color: yellow;
+        color: black;
+    }
+
+    .red-bg {
+        background-color: red;
+        color: white;
+    }
+
+    .blue-bg {
+        background-color: blue;
+        color: white;
+    }
+
+    .pink-bg {
+        background-color: pink;
+        color: black;
+    }
+</style>
+
+<h2>Local Alignment</h2>
+<p>La secuencia 1 es: {{ sequence1 }}</p>
+<p>La secuencia 2 es: {{ sequence2 }}</p>
+
+<h2>Score del Alineamiento Global</h2>
+
+<p>El score total es: {{ result[0][0] }}</p>
+
+<h2> Alineación resultante</h2>
+<p>{{ result[0][2] }}</p>
+<h2> Posicion en donde se encuentran ambas secuencias</h2>
+{% for p in result[0][1] %}
+<p>{{p}}</p>
+{% endfor %}
+{% if size == 1 %}
+<p>No se encontraron otras subsecuencias</p>
+{% elif size > 1 %}
+<h2>Existen otras subsecuencias</h2>
+<pre style="white-space: nowrap;">
+        {% for s in range(size) %}
+            <p>{{result[s][2]}}</p>
+        {% endfor %}
+</pre>
+{% endif %}
+{% endblock %}

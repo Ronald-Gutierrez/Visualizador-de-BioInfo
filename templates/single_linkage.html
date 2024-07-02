@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    pre {
+        font-size: 1.2em;
+        /* Tamaño de letra más grande */
+    }
+
+    .green-bg {
+        background-color: green;
+        color: white;
+    }
+
+    .yellow-bg {
+        background-color: yellow;
+        color: black;
+    }
+
+    .red-bg {
+        background-color: red;
+        color: white;
+    }
+
+    .blue-bg {
+        background-color: blue;
+        color: white;
+    }
+
+    .pink-bg {
+        background-color: pink;
+        color: black;
+    }
+</style>
+<h2>Clustering: Distancia Minima</h2>
+{% for l, (cluster,matrix,min_dist) in result%}
+<p>Nivel {{l}}:</p>
+<p>Distancia minima: {{min_dist}}</p>
+<p>Cluster: {{cluster}}</p>
+{% endfor %}
+
+{% endblock %}
