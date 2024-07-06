@@ -124,3 +124,26 @@ input[type="submit"]:hover {
     cursor: pointer;
     width: 100%;
 }
+
+#resetButton {
+
+    border: none;
+    padding: 10px 20px; /* Ajusta el padding para incluir la imagen */
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto; /* Ajusta según sea necesario */
+    position: absolute; /* Para posicionar el botón de forma absoluta */
+    z-index: 1000; /* Asegúrate de que el botón esté encima de otros elementos */
+    top: 29px; /* Ajusta según sea necesario para posicionar el botón verticalmente */
+    left: 1843px; /* Para centrar horizontalmente */
+    transform: translateX(-50%); /* Para centrar horizontalmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-icon {
+    width: 20px; /* Ajusta el tamaño de la imagen */
+    height: 20px; /* Ajusta el tamaño de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}

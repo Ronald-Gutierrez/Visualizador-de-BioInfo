@@ -13,8 +13,11 @@ from algorithms.clustering import clustering
 
 app = Flask(__name__)
 
-
 @app.route('/')
+def home():
+    return render_template('portada/home.html')
+
+@app.route('/visualizador')
 def index():
     return render_template('index.html')
 
