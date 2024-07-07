@@ -54,13 +54,14 @@ def analizar():
         match = int(match)
         mismatch = int(mismatch)
         gap = int(gap)
+        
 
         # Llamar a la función de alineamiento global
         score = needleman_wunsch_score(
             sequence1, sequence2, match, mismatch, gap)
-        alienaciones = needleman_wunsch_alignment(
+        alineaciones = needleman_wunsch_alignment(
             sequence1, sequence2, match, mismatch, gap)
-        return render_template('alineamiento_global.html', score=score, alienaciones=alienaciones, sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, operation=operation)
+        return render_template('alineamiento_global.html', score=score, alineaciones=alineaciones, sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, operation=operation)
     elif operation == 'smith_waterman':
         match = int(match)
         mismatch = int(mismatch)

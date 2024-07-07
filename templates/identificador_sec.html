@@ -1,14 +1,74 @@
 {% extends 'index.html' %}
 
 {% block content %}
+<style>
+    .sequence {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sequence span {
+        display: inline-block;
+        padding: 5px;
+        margin: 0px;
+        border-radius: 3px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* ADN colors */
+    .adn.A { background-color: #00ff00; } /* Verde */
+    .adn.T { background-color: #ff0000; } /* Rojo */
+    .adn.C { background-color: #0000ff; } /* Azul */
+    .adn.G { background-color: #ffa500; } /* Naranja */
+
+    /* ARN colors */
+    .arn.A { background-color: #00ff00; } /* Verde */
+    .arn.U { background-color: #ff0000; } /* Rojo */
+    .arn.C { background-color: #0000ff; } /* Azul */
+    .arn.G { background-color: #ffa500; } /* Naranja */
+
+    /* Proteína colors */
+    .proteina.A { background-color: #ff9999; } /* Rojo claro */
+    .proteina.R { background-color: #9999ff; } /* Azul claro */
+    .proteina.N { background-color: #99ff99; } /* Verde claro */
+    .proteina.D { background-color: #ff99ff; } /* Rosa */
+    .proteina.C { background-color: #ffff99; } /* Amarillo claro */
+    .proteina.Q { background-color: #ffcc99; } /* Naranja claro */
+    .proteina.E { background-color: #cc99ff; } /* Violeta claro */
+    .proteina.G { background-color: #ff6699; } /* Fucsia claro */
+    .proteina.H { background-color: #66ff99; } /* Verde neón */
+    .proteina.I { background-color: #99ccff; } /* Azul cielo */
+    .proteina.L { background-color: #ff9966; } /* Naranja */
+    .proteina.K { background-color: #99ffcc; } /* Turquesa */
+    .proteina.M { background-color: #ccff66; } /* Verde limón */
+    .proteina.F { background-color: #66ccff; } /* Azul claro */
+    .proteina.P { background-color: #ffcc66; } /* Durazno */
+    .proteina.S { background-color: #66ffcc; } /* Verde menta */
+    .proteina.T { background-color: #cc66ff; } /* Violeta */
+    .proteina.W { background-color: #ff66cc; } /* Fucsia */
+    .proteina.Y { background-color: #66ff66; } /* Verde */
+    .proteina.V { background-color: #66cc66; } /* Verde oliva */
+
+    /* Unknown colors */
+    .unknown { background-color: #9E9E9E; } /* Gris para secuencia desconocida */
+</style>
+
 <h2>Resultados de la Secuencia Ingresada</h2>
-<p>Secuencia Ingresada: {{ sequence }}</p>
-{% if result == "ADN" or result == "ARN" %}
-    <p>Tu secuencia ingresada es un {{ result }}.</p>
-{% elif result == "Proteína" %}
-    <p>Tu secuencia ingresada es una proteína.</p>
-{% else %}
-    <p>Secuencia no reconocida.</p>
-{% endif %}
+<p>Secuencia Ingresada:</p>
+<div class="sequence">
+    {% for letter in sequence %}
+        {% if result == "ADN" %}
+            <span class="adn {{ letter }}">{{ letter }}</span>
+        {% elif result == "ARN" %}
+            <span class="arn {{ letter }}">{{ letter }}</span>
+        {% elif result == "Proteína" %}
+            <span class="proteina {{ letter }}">{{ letter }}</span>
+        {% else %}
+            <span class="unknown">{{ letter }}</span>
+        {% endif %}
+    {% endfor %}
+</div>
+<p>Tu secuencia ingresada es un {{ result }}.</p>
 {% endblock %}
-``
+

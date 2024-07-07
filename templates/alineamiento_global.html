@@ -2,64 +2,84 @@
 
 {% block content %}
 <style>
+    .sequence {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sequence span {
+        display: inline-block;
+        padding: 5px;
+        margin: 0px;
+        border-radius: 3px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        text-align: center;
+    }
     pre {
         font-size: 1.2em; /* Tamaño de letra más grande */
     }
 
-    .green-bg { background-color: green; color: white; }
-    .yellow-bg { background-color: yellow; color: black; }
-    .red-bg { background-color: red; color: white; }
-    .blue-bg { background-color: blue; color: white; }
-    .pink-bg { background-color: pink; color: black; }
+    .A { background-color: green; color: white; }
+    .C { background-color: yellow; color: black; }
+    .G { background-color: red; color: white; }
+    .T { background-color: blue; color: white; }
+    .U { background-color: pink; color: black; }
+
+    /* Proteína colors */
+    .R { background-color: #9999ff; } /* Azul claro */
+    .N { background-color: #99ff99; } /* Verde claro */
+    .D { background-color: #ff99ff; } /* Rosa */
+    .Q { background-color: #ffcc99; } /* Naranja claro */
+    .E { background-color: #cc99ff; } /* Violeta claro */
+    .H { background-color: #66ff99; } /* Verde neón */
+    .I { background-color: #99ccff; } /* Azul cielo */
+    .L { background-color: #ff9966; } /* Naranja */
+    .K { background-color: #99ffcc; } /* Turquesa */
+    .M { background-color: #ccff66; } /* Verde limón */
+    .F { background-color: #66ccff; } /* Azul claro */
+    .P { background-color: #ffcc66; } /* Durazno */
+    .S { background-color: #66ffcc; } /* Verde menta */
+    .W { background-color: #ff66cc; } /* Fucsia */
+    .Y { background-color: #66ff66; } /* Verde */
+    .V { background-color: #66cc66; } /* Verde oliva */
+
+    .alignment-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        max-height: 500px; /* Altura máxima del card */
+        overflow-y: auto; /* Habilita scroll vertical si el contenido excede la altura máxima */
+    }
 </style>
 
-<h2>Secuencias ingresadas</h2>
-<p>La secuencia 1 es: {{ sequence1 }}</p>
-<p>La secuencia 2 es: {{ sequence2 }}</p>
 
-<h2>Score del Alineamiento Global</h2>
-<p>El score total es: {{ score }}</p>
+    <h2>Secuencias ingresadas</h2>
+    <p>La secuencia 1 es: {{ sequence1 }}</p>
+    <p>La secuencia 2 es: {{ sequence2 }}</p>
 
-<h2>Alineaciones</h2>
-<p>Alineaciones posibles:</p>
-<ul>
-    {% for alignment in alienaciones %}
-    <li>
-        <pre style="white-space: nowrap;">
-            {% for char in alignment[0] %}
-                {% if char == 'A' %}
-                    <span class="green-bg">{{ char }}</span>
-                {% elif char == 'C' %}
-                    <span class="yellow-bg">{{ char }}</span>
-                {% elif char == 'G' %}
-                    <span class="red-bg">{{ char }}</span>
-                {% elif char == 'T' %}
-                    <span class="blue-bg">{{ char }}</span>
-                {% elif char == 'U' %}
-                    <span class="pink-bg">{{ char }}</span>
-                {% else %}
-                    {{ char }}
-                {% endif %}
+    <h2>Score del Alineamiento Global</h2>
+    <p>El score total es: {{ score }}</p>
+    <h2>Alineaciones</h2>
+    <p>Alineaciones posibles:</p>
+    <div class="alignment-card">
+
+        <ul>
+            {% for alignment in alineaciones %}
+            <li>
+                <pre class="sequence" style="white-space: nowrap;">
+                    {% for char in alignment[0] %}
+                        <span class="{{ char }}">{{ char }}</span>
+                    {% endfor %}
+                </pre>
+                <pre class="sequence" style="white-space: nowrap;">
+                    {% for char in alignment[1] %}
+                        <span class="{{ char }}">{{ char }}</span>
+                    {% endfor %}
+                </pre>
+            </li>
             {% endfor %}
-        </pre>
-        <pre style="white-space: nowrap;">
-            {% for char in alignment[1] %}
-                {% if char == 'A' %}
-                    <span class="green-bg">{{ char }}</span>
-                {% elif char == 'C' %}
-                    <span class="yellow-bg">{{ char }}</span>
-                {% elif char == 'G' %}
-                    <span class="red-bg">{{ char }}</span>
-                {% elif char == 'T' %}
-                    <span class="blue-bg">{{ char }}</span>
-                {% elif char == 'U' %}
-                    <span class="pink-bg">{{ char }}</span>
-                {% else %}
-                    {{ char }}
-                {% endif %}
-            {% endfor %}
-        </pre>
-    </li>
-    {% endfor %}
-</ul>
+        </ul>
+    </div>
+
 {% endblock %}
