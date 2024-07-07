@@ -9,6 +9,7 @@ from algorithms.sub_cadena import calcular_score  # type: ignore
 from algorithms.alineamiento_global import needleman_wunsch_score, needleman_wunsch_alignment  # type: ignore
 from algorithms.local_alignment import smith_waterman
 from algorithms.clustering import clustering
+from algorithms.star_alignment import needleman_wunsch_alignment_star,encontrar_secuencia_central
 
 
 app = Flask(__name__)
@@ -54,9 +55,6 @@ def analizar():
         match = int(match)
         mismatch = int(mismatch)
         gap = int(gap)
-        
-
-        # Llamar a la función de alineamiento global
         score = needleman_wunsch_score(
             sequence1, sequence2, match, mismatch, gap)
         alineaciones = needleman_wunsch_alignment(
@@ -70,6 +68,18 @@ def analizar():
         result = smith_waterman(sequence1, sequence2, match, mismatch, gap)
         size = len(result)
         return render_template('local_alignment.html', sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, result=result, size=size)
+    
+    elif operation =='star_alignment':
+        match = int(match)
+        mismatch = int(mismatch)
+        gap = int(gap)
+        additional_sequences = request.form.getlist('sequences[]')
+        
+        sequences = [sequence1, sequence2] + additional_sequences
+        result = needleman_wunsch_alignment_star(sequences,match,mismatch,gap)
+        find_secuencia_central = encontrar_secuencia_central(result)
+        return render_template('star_alignment.html', sequences=sequences,find_secuencia_central=find_secuencia_central, sequence1=sequence1,sequence2=sequence2, additional_sequences=additional_sequences,result=result, match=match, mismatch=mismatch, gap=gap,operation=operation)
+
 
     elif operation == 'Clustering Distancia Mínima':
         matrix_input = request.form.get("distanceMatrix")
@@ -84,7 +94,6 @@ def analizar():
             zip(clustering_result, matrices, min_distances), start=1))
         return render_template("single_linkage.html", matrix=matrix, result=result)
     return render_template('index.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
