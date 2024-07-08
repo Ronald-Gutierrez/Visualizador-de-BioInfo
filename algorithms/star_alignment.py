@@ -26,7 +26,7 @@ def needleman_wunsch_alignment_star(sequences, match, mismatch, gap):
 
                 matriz_puntuacion[i][j] = max(score_diag, score_up, score_left)
 
-        return matriz_puntuacion[len1][len2]
+        return matriz_puntuacion[len1][len2], sequence1, sequence2
 
     sequence_labels = [""] + [f"S{i + 1}" for i in range(n)]
     matriz_puntuacion_final[0] = sequence_labels[:]
@@ -38,13 +38,13 @@ def needleman_wunsch_alignment_star(sequences, match, mismatch, gap):
             if i == j:
                 matriz_puntuacion_final[i][j] = "-"
             else:
-                score = needleman_wunsch(sequences[i - 1], sequences[j - 1])
+                score, _, _ = needleman_wunsch(sequences[i - 1], sequences[j - 1])
                 matriz_puntuacion_final[i][j] = str(score)
 
     return matriz_puntuacion_final
 
 def encontrar_secuencia_central(matriz_puntuacion_final):
-    n = len(matriz_puntuacion_final) - 1  # número de secuencias
+    n = len(matriz_puntuacion_final) - 1
     max_sum = float('-inf')
     central_sequence = None
 
@@ -52,7 +52,7 @@ def encontrar_secuencia_central(matriz_puntuacion_final):
         sum_distance = 0
         for j in range(1, n + 1):
             if i != j and matriz_puntuacion_final[i][j] != '-':
-                sum_distance += (int(matriz_puntuacion_final[i][j]))
+                sum_distance += int(matriz_puntuacion_final[i][j])
 
         if sum_distance > max_sum:
             max_sum = sum_distance

@@ -93,6 +93,30 @@ def analizar():
         result = list(enumerate(
             zip(clustering_result, matrices, min_distances), start=1))
         return render_template("single_linkage.html", matrix=matrix, result=result)
+    elif operation == 'Clustering Distancia Máxima':
+        matrix_input = request.form.get("distanceMatrix")
+        matrix = []
+        for row in matrix_input.splitlines():
+            # Split each row by spaces and convert to integers
+            matrix.append([float(num) for num in row.split()])
+        clustering_result, matrices, max_distances = clustering(
+            matrix, 'maximo')
+        size = len(max_distances)
+        result = list(enumerate(
+            zip(clustering_result, matrices, max_distances), start=1))
+        return render_template("complete_linkage.html", matrix=matrix, result=result)
+    elif operation == 'Clustering Distancia Promedio':
+        matrix_input = request.form.get("distanceMatrix")
+        matrix = []
+        for row in matrix_input.splitlines():
+            # Split each row by spaces and convert to integers
+            matrix.append([float(num) for num in row.split()])
+        clustering_result, matrices, avg_distances = clustering(
+            matrix, 'promedio')
+        size = len(avg_distances)
+        result = list(enumerate(
+            zip(clustering_result, matrices, avg_distances), start=1))
+        return render_template("average_linkage.html", matrix=matrix, result=result)
     return render_template('index.html')
 
 if __name__ == '__main__':
