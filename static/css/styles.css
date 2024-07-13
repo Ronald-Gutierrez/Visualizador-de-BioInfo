@@ -142,8 +142,8 @@ input[type="submit"]:hover {
     width: auto; /* Ajusta según sea necesario */
     position: absolute; /* Para posicionar el botón de forma absoluta */
     z-index: 1000; /* Asegúrate de que el botón esté encima de otros elementos */
-    top: 29px; /* Ajusta según sea necesario para posicionar el botón verticalmente */
-    left: 1843px; /* Para centrar horizontalmente */
+    top: 4%; /* Ajusta según sea necesario para posicionar el botón verticalmente */
+    left: 95.5%; /* Para centrar horizontalmente */
     transform: translateX(-50%); /* Para centrar horizontalmente */
     display: flex;
     align-items: center;

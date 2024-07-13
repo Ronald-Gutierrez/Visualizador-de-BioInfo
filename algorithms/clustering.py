@@ -1,3 +1,7 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import dendrogram
+
 def distance_min(matrix, clusters, strategy):
     min_dist = float('inf')
     min_pair = (0, 0)
@@ -61,3 +65,5 @@ def clustering(matrix, strategy):
         print(min_dist)
 
     return result_clusters, result_matrices, min_distances
+
+    

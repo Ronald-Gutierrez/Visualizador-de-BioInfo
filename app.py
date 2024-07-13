@@ -26,9 +26,9 @@ def index():
 @app.route('/analizar', methods=['POST'])
 def analizar():
     # Obtener datos del formulario
-    sequence1 = request.form.get('sequence1', '')
-    sequence2 = request.form.get('sequence2', '')
-    sequence = request.form.get('sequence', '')
+    sequence1 = request.form.get('sequence1', '').upper()
+    sequence2 = request.form.get('sequence2', '').upper()
+    sequence = request.form.get('sequence', '').upper()
     # sequence_trans = request.form.get('sequence_trans', '')
     match = request.form.get('match', '')
     mismatch = request.form.get('mismatch', '')
@@ -41,7 +41,8 @@ def analizar():
     if operation == 'identificar_secuencia':
         # Llamar a la función de identificador de secuencia
         result = identificar_secuencia(sequence)
-        return render_template('identificador_sec.html', result=result, sequence=sequence, operation=operation)
+        cantidad = len(sequence)
+        return render_template('identificador_sec.html', result=result, cantidad=cantidad,sequence=sequence, operation=operation)
     elif operation == 'transcripcion_adn_arn':
         result = transcripcion_adn_arn(sequence)
         return render_template('transcripcion.html', result=result, sequence=sequence, operation=operation)

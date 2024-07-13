@@ -26,3 +26,4 @@ def identificar_secuencia(secuencia):
         resultado = "Secuencia no reconocida"
 
     return resultado
+

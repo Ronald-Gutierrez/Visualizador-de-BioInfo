@@ -21,45 +21,45 @@
                 if (operation === "sub_cadena") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
                     `;
                 }
                 else if (operation === "transcripcion_adn_arn") {
                     extraInputs.innerHTML = `
                         <label for="sequence">Secuencia:</label>
-                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
+                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}" maxlength="30"><br><br>
                     `;
                 }
                 else if (operation === "identificar_secuencia") {
                     extraInputs.innerHTML = `
                         <label for="sequence">Secuencia:</label>
-                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}"><br><br>
+                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}" maxlength="30"><br><br>
                     `;
                 }
                 else if (operation === "mayusculas") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
                     `;
                 }
                 else if (operation === "coincidencias") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
                     `;
                 }
                 else if (operation === "needleman_wunsch" || operation === "smith_waterman") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese una secuencia" value="{{ sequence1 }}"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese una secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese una secuencia" value="{{ sequence2 }}"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese una secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
                         <label for="match">Match:</label>
                         <input type="number" id="match" name="match" placeholder="#" value="{{ match }}"><br><br>
                         <label for="mismatch">Mismatch:</label>
@@ -86,9 +86,9 @@
                         <div id="additionalInputsContainer" style="max-height: 200px; overflow-y: auto;">
 
                             <label for="sequence1">Secuencia 1:</label>
-                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}"><br><br>
+                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
                             <label for="sequence2">Secuencia 2:</label>
-                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}"><br><br>
+                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
                             <div id="additionalInputs">
                                 <!-- Aquí se agregarán dinámicamente los nuevos inputs -->
                             </div>
@@ -108,7 +108,7 @@
             const newInput = document.createElement('div');
             newInput.innerHTML = `
                 <label for="sequence${newInputIndex}">Secuencia ${newInputIndex}:</label>
-                <input type="text" id="sequence${newInputIndex}" name="sequences[]" placeholder="Ingrese su secuencia"><br><br>
+                <input type="text" id="sequence${newInputIndex}" name="sequences[]" placeholder="Ingrese su secuencia" maxlength="30"><br><br>
             `;
             additionalInputs.appendChild(newInput);
         }

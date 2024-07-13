@@ -1,6 +1,46 @@
 {% extends 'index.html' %}
 
 {% block content %}
+<style>
+    .sequence {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sequence span {
+        display: inline-block;
+        padding: 5px;
+        margin: 0px;
+        border-radius: 3px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* ADN colors */
+    .adn.A { background-color: #00ff00; } /* Verde */
+    .adn.T { background-color: #ff0000; } /* Rojo */
+    .adn.C { background-color: #0000ff; } /* Azul */
+    .adn.G { background-color: #ffa500; } /* Naranja */
+
+    /* ARN colors */
+    .arn.A { background-color: #00ff00; } /* Verde */
+    .arn.U { background-color: #ff0000; } /* Rojo */
+    .arn.C { background-color: #0000ff; } /* Azul */
+    .arn.G { background-color: #ffa500; } /* Naranja */
+</style>
 <h2>Resultados de la Secuencia Ingresada</h2>
-    <p>Tu secuencia ingresada es un {{ result }}</p>
+<p>Tu secuencia ingresada de ADN es:<br>
+    <div class="sequence">
+        {% for nucleotide in sequence %}
+            <span class="adn {{ nucleotide }}">{{ nucleotide }}</span>
+        {% endfor %}
+    </div>
+</p>
+<p>Tu secuencia transcrita es:<br>
+    <div class="sequence">
+        {% for nucleotide in result %}
+            <span class="arn {{ nucleotide }}">{{ nucleotide }}</span>
+        {% endfor %}
+    </div>
+</p>
 {% endblock %}
