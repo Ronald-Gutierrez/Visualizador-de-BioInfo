@@ -58,7 +58,7 @@
     .cluster:nth-child(30) { background-color: #ccff66; }
 </style>
 
-<h2>Clustering: Distancia Mínima</h2>
+<h2>Clustering: Distancia Promedio</h2>
 
 <div class="scroll-container">
     {% for level, (cluster, matrix, min_dist) in result %}
@@ -67,7 +67,7 @@
             <p><strong>Distancia mínima:</strong> {{ min_dist }}</p>
             <div class="cluster-container">
                 {% for subcluster in cluster %}
-                    <div class="cluster">{{ subcluster }}</div>
+                    <div class="cluster">{{ subcluster|join(", ") }}</div>
                 {% endfor %}
             </div>
         </div>
