@@ -9,7 +9,7 @@ def dot_matrix(seq1, seq2):
                 points.append((i, j))
     return points
 
-def plot_dot_matrix(points, seq1, seq2, filepath, markersize=20, labelsize=12, background_color='white', line_color='grey'):
+def plot_dot_matrix(points, seq1, seq2, filepath, markersize=15, labelsize=10, background_color='white', line_color='grey'):
     fig, ax = plt.subplots()
 
     # Dibujar puntos en color gris
@@ -20,7 +20,7 @@ def plot_dot_matrix(points, seq1, seq2, filepath, markersize=20, labelsize=12, b
     for i in range(1, len(seq1)):
         for j in range(1, len(seq2)):
             if (i-1, j-1) in points and (i, j) in points:
-                ax.plot([j-1, j], [i-1, i], color=line_color, linewidth=3) 
+                ax.plot([j-1, j], [i-1, i], color=line_color, linewidth=2.5) 
 
     ax.set_xticks(np.arange(len(seq2)))
     ax.set_yticks(np.arange(len(seq1)))

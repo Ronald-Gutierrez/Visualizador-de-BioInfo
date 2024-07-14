@@ -107,6 +107,8 @@ def analizar():
         result = list(enumerate(
             zip(clustering_result, matrices, min_distances), start=1))
         return render_template("single_linkage.html", matrix=matrix, result=result)
+    
+    
     elif operation == 'Clustering Distancia Máxima':
         matrix_input = request.form.get("distanceMatrix")
         matrix = []

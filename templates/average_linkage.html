@@ -1,42 +1,77 @@
 {% extends 'index.html' %}
 
 {% block content %}
+
 <style>
-    pre {
-        font-size: 1.2em;
-        /* Tamaño de letra más grande */
+    .scroll-container {
+        max-height: 700px; /* Ajusta la altura según sea necesario */
+        overflow-y: auto;
+        border: 2px solid #ccc;
+        padding: 10px;
     }
-
-    .green-bg {
-        background-color: green;
-        color: white;
+    .cluster-level {
+        border: 2px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
     }
-
-    .yellow-bg {
-        background-color: yellow;
-        color: black;
+    .cluster-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
     }
-
-    .red-bg {
-        background-color: red;
-        color: white;
+    .cluster {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        min-width: 50px;
+        text-align: center;
     }
-
-    .blue-bg {
-        background-color: blue;
-        color: white;
-    }
-
-    .pink-bg {
-        background-color: pink;
-        color: black;
-    }
+    .cluster:nth-child(1) { background-color: #ff9999; }
+    .cluster:nth-child(2) { background-color: #99ccff; }
+    .cluster:nth-child(3) { background-color: #99ff99; }
+    .cluster:nth-child(4) { background-color: #ffcc99; }
+    .cluster:nth-child(5) { background-color: #cc99ff; }
+    .cluster:nth-child(6) { background-color: #ffff99; }
+    .cluster:nth-child(7) { background-color: #ff99cc; }
+    .cluster:nth-child(8) { background-color: #99ffcc; }
+    .cluster:nth-child(9) { background-color: #ffccff; }
+    .cluster:nth-child(10) { background-color: #ccffcc; }
+    .cluster:nth-child(11) { background-color: #ff6666; }
+    .cluster:nth-child(12) { background-color: #6666ff; }
+    .cluster:nth-child(13) { background-color: #66ff66; }
+    .cluster:nth-child(14) { background-color: #ff9966; }
+    .cluster:nth-child(15) { background-color: #cc66ff; }
+    .cluster:nth-child(16) { background-color: #ffff66; }
+    .cluster:nth-child(17) { background-color: #ff66cc; }
+    .cluster:nth-child(18) { background-color: #66ffcc; }
+    .cluster:nth-child(19) { background-color: #ccff99; }
+    .cluster:nth-child(20) { background-color: #9999ff; }
+    .cluster:nth-child(21) { background-color: #ff6699; }
+    .cluster:nth-child(22) { background-color: #99ff66; }
+    .cluster:nth-child(23) { background-color: #6699ff; }
+    .cluster:nth-child(24) { background-color: #ff9966; }
+    .cluster:nth-child(25) { background-color: #cc99cc; }
+    .cluster:nth-child(26) { background-color: #ff66ff; }
+    .cluster:nth-child(27) { background-color: #66ff99; }
+    .cluster:nth-child(28) { background-color: #999966; }
+    .cluster:nth-child(29) { background-color: #66ccff; }
+    .cluster:nth-child(30) { background-color: #ccff66; }
 </style>
-<h2>Clustering: Distancia Promedio</h2>
-{% for l, (cluster,matrix,min_dist) in result%}
-<p>Nivel {{l}}:</p>
-<p>Distancia minima: {{min_dist}}</p>
-<p>Cluster: {{cluster}}</p>
-{% endfor %}
+
+<h2>Clustering: Distancia Mínima</h2>
+
+<div class="scroll-container">
+    {% for level, (cluster, matrix, min_dist) in result %}
+        <div class="cluster-level">
+            <p><strong>Nivel {{ level }}:</strong></p>
+            <p><strong>Distancia mínima:</strong> {{ min_dist }}</p>
+            <div class="cluster-container">
+                {% for subcluster in cluster %}
+                    <div class="cluster">{{ subcluster }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
