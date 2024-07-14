@@ -2,34 +2,54 @@
 
 {% block content %}
 <style>
+    .sequence {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sequence span {
+        display: inline-block;
+        padding: 5px;
+        margin: 0px;
+        border-radius: 3px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        text-align: center;
+    }
     pre {
-        font-size: 1.2em;
-        /* Tamaño de letra más grande */
+        font-size: 1.2em; /* Tamaño de letra más grande */
     }
 
-    .green-bg {
-        background-color: green;
-        color: white;
-    }
+    .A { background-color: green; color: white; }
+    .C { background-color: yellow; color: black; }
+    .G { background-color: red; color: white; }
+    .T { background-color: blue; color: white; }
+    .U { background-color: pink; color: black; }
 
-    .yellow-bg {
-        background-color: yellow;
-        color: black;
-    }
+    /* Proteína colors */
+    .R { background-color: #9999ff; } /* Azul claro */
+    .N { background-color: #99ff99; } /* Verde claro */
+    .D { background-color: #ff99ff; } /* Rosa */
+    .Q { background-color: #ffcc99; } /* Naranja claro */
+    .E { background-color: #cc99ff; } /* Violeta claro */
+    .H { background-color: #66ff99; } /* Verde neón */
+    .I { background-color: #99ccff; } /* Azul cielo */
+    .L { background-color: #ff9966; } /* Naranja */
+    .K { background-color: #99ffcc; } /* Turquesa */
+    .M { background-color: #ccff66; } /* Verde limón */
+    .F { background-color: #66ccff; } /* Azul claro */
+    .P { background-color: #ffcc66; } /* Durazno */
+    .S { background-color: #66ffcc; } /* Verde menta */
+    .W { background-color: #ff66cc; } /* Fucsia */
+    .Y { background-color: #66ff66; } /* Verde */
+    .V { background-color: #66cc66; } /* Verde oliva */
 
-    .red-bg {
-        background-color: red;
-        color: white;
-    }
-
-    .blue-bg {
-        background-color: blue;
-        color: white;
-    }
-
-    .pink-bg {
-        background-color: pink;
-        color: black;
+    .alignment-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        max-height: 500px; /* Altura máxima del card */
+        overflow-y: auto; /* Habilita scroll vertical si el contenido excede la altura máxima */
     }
 </style>
 
@@ -38,23 +58,36 @@
 <p>La secuencia 2 es: {{ sequence2 }}</p>
 
 <h2>Score del Alineamiento Global</h2>
-
 <p>El score total es: {{ result[0][0] }}</p>
 
-<h2> Alineación resultante</h2>
-<p>{{ result[0][2] }}</p>
-<h2> Posicion en donde se encuentran ambas secuencias</h2>
+<h2>Alineación resultante</h2>
+<p>
+    <pre class="sequence" style="white-space: nowrap;">
+        {% for char in result[0][2] %}
+            <span class="{{ char }}">{{ char }}</span>
+        {% endfor %}
+    </pre>
+</p>
+
+<h2>Posicion en donde se encuentran ambas secuencias</h2>
 {% for p in result[0][1] %}
-<p>{{p}}</p>
+<p>{{ p }}</p>
 {% endfor %}
+
 {% if size == 1 %}
 <p>No se encontraron otras subsecuencias</p>
 {% elif size > 1 %}
 <h2>Existen otras subsecuencias</h2>
 <pre style="white-space: nowrap;">
-        {% for s in range(size) %}
-            <p>{{result[s][2]}}</p>
-        {% endfor %}
+    {% for s in range(size) %}
+        <p>
+            <pre class="sequence" style="white-space: nowrap;">
+                {% for char in result[s][2] %}
+                    <span class="{{ char }}">{{ char }}</span>
+                {% endfor %}
+            </pre>
+        </p>
+    {% endfor %}
 </pre>
 {% endif %}
 {% endblock %}

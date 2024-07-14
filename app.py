@@ -81,7 +81,7 @@ def analizar():
 
         result = smith_waterman(sequence1, sequence2, match, mismatch, gap)
         size = len(result)
-        return render_template('local_alignment.html', sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, result=result, size=size)
+        return render_template('local_alignment.html', sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, result=result, size=size ,operation=operation)
     
     elif operation =='star_alignment':
         match = int(match)
