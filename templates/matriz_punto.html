@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <style>
+        .matrix-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .matrix-image {
+            max-width: 100%;
+            border-radius: 30px;
+            padding: 10px;
+            filter: grayscale(10%);
+            /* filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(360deg) saturate(1000%); */
+
+        }
+        
+        .download-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .download-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <h2>Matriz de Puntos</h2>
+    
+    <div class="matrix-container">
+        <img src="{{ filepath }}" alt="Matriz de Puntos" class="matrix-image">
+    </div>
+
+    <div class="matrix-container">
+        <a href="{{ filepath }}" download="matriz_puntos.png" class="download-button">Descargar Matriz de Puntos</a>
+    </div>
+{% endblock %}

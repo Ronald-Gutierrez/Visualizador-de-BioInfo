@@ -32,6 +32,14 @@
                         <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}" maxlength="30"><br><br>
                     `;
                 }
+                else if (operation === "matriz_punto") {
+                    extraInputs.innerHTML = `
+                        <label for="sequence1">Secuencia 1:</label>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
+                        <label for="sequence2">Secuencia 2:</label>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
+                    `;
+                }
                 else if (operation === "identificar_secuencia") {
                     extraInputs.innerHTML = `
                         <label for="sequence">Secuencia:</label>
@@ -157,6 +165,8 @@
                         %}>Transcripción de ADN</option>
                     <option value="sub_cadena" {% if operation=='sub_cadena' %} selected {% endif %}>
                         Identificador de Substrings en Secuencias</option>
+                    <option value ="matriz_punto" {% if operation=='matriz_punto' %} selected {% endif %}>
+                        Matriz de Punto</option>
                     <option value="needleman_wunsch" {% if operation=='needleman_wunsch' %} selected {% endif %}">
                         Alineamiento Global</option>
                     <option value="smith_waterman" {% if operation=='smith_waterman' %} selected {% endif %}>

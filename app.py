@@ -10,6 +10,7 @@ from algorithms.alineamiento_global import needleman_wunsch_score, needleman_wun
 from algorithms.local_alignment import smith_waterman
 from algorithms.clustering import clustering
 from algorithms.star_alignment import needleman_wunsch_alignment_star,encontrar_secuencia_central
+from algorithms.matriz_punto import dot_matrix, plot_dot_matrix  # type: ignore
 
 
 app = Flask(__name__)
@@ -46,6 +47,18 @@ def analizar():
     elif operation == 'transcripcion_adn_arn':
         result = transcripcion_adn_arn(sequence)
         return render_template('transcripcion.html', result=result, sequence=sequence, operation=operation)
+    elif operation == 'matriz_punto':
+        # Llamar a la función de matriz de puntos
+        points = dot_matrix(sequence1, sequence2)
+
+        # Ruta para guardar la imagen
+        filepath = 'static/result_img/matriz_puntos.png'
+
+        # Generar y guardar la gráfica
+        plot_dot_matrix(points, sequence1, sequence2, filepath, labelsize=13)
+
+        return render_template('matriz_punto.html', filepath=filepath, sequence1=sequence1, sequence2=sequence2, operation=operation)
+
     elif operation == 'sub_cadena':
         # Llamar a la función de subcadena
         score = calcular_score(sequence1, sequence2)
