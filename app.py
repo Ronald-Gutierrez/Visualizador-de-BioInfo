@@ -11,6 +11,7 @@ from algorithms.local_alignment import smith_waterman
 from algorithms.clustering import clustering
 from algorithms.star_alignment import needleman_wunsch_alignment_star,encontrar_secuencia_central
 from algorithms.matriz_punto import dot_matrix, plot_dot_matrix  # type: ignore
+from algorithms.blosum_protein import align_sequences,calculate_alignment_metrics,format_alignment_output, calculate_alignment_score
 
 
 app = Flask(__name__)
@@ -34,8 +35,9 @@ def analizar():
     match = request.form.get('match', '')
     mismatch = request.form.get('mismatch', '')
     gap = request.form.get('gap', '')
-
     operation = request.form.get('operation', '')
+    blosumSize = request.form.get('blosumSize', 1)
+
 
     result = {}
 
@@ -82,6 +84,38 @@ def analizar():
         result = smith_waterman(sequence1, sequence2, match, mismatch, gap)
         size = len(result)
         return render_template('local_alignment.html', sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, result=result, size=size ,operation=operation)
+    elif operation == 'blosum_proteinas':
+        matrix_choice = request.form.get('blosumMatrix', '1')
+
+        matrix_options = {
+            "1": "BLOSUM62",
+            "2": "BLOSUM90",
+            "3": "BLOSUM80",
+            "4": "BLOSUM50",
+            "5": "BLOSUM45"
+        }
+
+        blocksize = 10
+        
+        if blosumSize.isdigit():
+            blocksize = int(blosumSize)
+        matrix_name = matrix_options.get(matrix_choice, "BLOSUM62")
+        salida_alineamientos = format_alignment_output(align_sequences(sequence1, sequence2, matrix_name)[0], matrix_name,blocksize)
+        score = calculate_alignment_score(align_sequences(sequence1, sequence2, matrix_name)[0])
+        alignments = align_sequences(sequence1, sequence2, matrix_name)
+        metrics = [calculate_alignment_metrics(alignment) for alignment in alignments]
+        
+        return render_template('alineamiento_proteinas.html', 
+                            sequence1=sequence1, 
+                            sequence2=sequence2, 
+                            score=score,
+                            matrix_name=matrix_name, 
+                            alignments=alignments, 
+                            metrics=metrics,
+                            salida_alineamientos=salida_alineamientos,
+                            blocksize=blocksize,
+
+                            operation=operation)
     
     elif operation =='star_alignment':
         match = int(match)

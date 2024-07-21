@@ -21,59 +21,78 @@
                 if (operation === "sub_cadena") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30" required><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30" required><br><br>
                     `;
                 }
                 else if (operation === "transcripcion_adn_arn") {
                     extraInputs.innerHTML = `
                         <label for="sequence">Secuencia:</label>
-                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}" maxlength="30" required><br><br>
                     `;
                 }
                 else if (operation === "matriz_punto") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30" required><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30" required><br><br>
                     `;
                 }
                 else if (operation === "identificar_secuencia") {
                     extraInputs.innerHTML = `
                         <label for="sequence">Secuencia:</label>
-                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia" value="{{ sequence }}" maxlength="30" required><br><br>
                     `;
                 }
                 else if (operation === "mayusculas") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30" required><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30" required><br><br>
                     `;
                 }
                 else if (operation === "coincidencias") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30" required><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30" required><br><br>
                     `;
                 }
                 else if (operation === "needleman_wunsch" || operation === "smith_waterman") {
                     extraInputs.innerHTML = `
                         <label for="sequence1">Secuencia 1:</label>
-                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese una secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese una secuencia" value="{{ sequence1 }}" maxlength="30" required><br><br>
                         <label for="sequence2">Secuencia 2:</label>
-                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese una secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese una secuencia" value="{{ sequence2 }}" maxlength="30" required><br><br>
                         <label for="match">Match:</label>
-                        <input type="number" id="match" name="match" placeholder="#" value="{{ match }}"><br><br>
+                        <input type="number" id="match" name="match" placeholder="#" value="{{ match }} required"><br><br>
                         <label for="mismatch">Mismatch:</label>
-                        <input type="number" id="mismatch" name="mismatch" placeholder="#" value="{{ mismatch }}"><br><br>
+                        <input type="number" id="mismatch" name="mismatch" placeholder="#" value="{{ mismatch }} required"><br><br>
                         <label for="gap">Gap:</label>
-                        <input type="number" id="gap" name="gap" placeholder="#" value="{{ gap }}"><br><br>
+                        <input type="number" id="gap" name="gap" placeholder="#" value="{{ gap }}" required><br><br>
+                    `;
+                }
+                else if (operation === "blosum_proteinas") {
+                    extraInputs.innerHTML = `
+                        <label for="sequence1">Secuencia 1:</label>
+                        <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese una secuencia" value="{{ sequence1 }}" maxlength="30" required><br><br>
+                        <label for="sequence2">Secuencia 2:</label>
+                        <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese una secuencia" value="{{ sequence2 }}" maxlength="30" required><br><br>
+                        <label for="blosumSize">Tamaño de Cadenas para visualizar:</label>
+                        <input type="number" id="blosumSize" name="blosumSize" placeholder="10" value="{{ blosumSize }}" min="1" step="1" required><br><br>
+                        <label for="blosumMatrix">Matriz BLOSUM:</label>
+                        <select id="blosumMatrix" name="blosumMatrix">
+                            <option value="1">BLOSUM62</option>
+                            <option value="2">BLOSUM90</option>
+                            <option value="3">BLOSUM80</option>
+                            <option value="4">BLOSUM50</option>
+                            <option value="5">BLOSUM45</option>
+                        </select><br><br>
+
                     `;
                 }
 
@@ -86,17 +105,17 @@
                 else if (operation === "star_alignment") {
                     extraInputs.innerHTML = `
                         <label for="match">Match:</label>
-                        <input type="number" id="match" name="match" placeholder="#" value="{{ match }}"><br><br>
+                        <input type="number" id="match" name="match" placeholder="#" value="{{ match }}" required><br><br>
                         <label for="mismatch">Mismatch:</label>
-                        <input type="number" id="mismatch" name="mismatch" placeholder="#" value="{{ mismatch }}"><br><br>
+                        <input type="number" id="mismatch" name="mismatch" placeholder="#" value="{{ mismatch }}" required><br><br>
                         <label for="gap">Gap:</label>
-                        <input type="number" id="gap" name="gap" placeholder="#" value="{{ gap }}"><br><br>
+                        <input type="number" id="gap" name="gap" placeholder="#" value="{{ gap }}" required><br><br>
                         <div id="additionalInputsContainer" style="max-height: 200px; overflow-y: auto;">
 
                             <label for="sequence1">Secuencia 1:</label>
-                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30"><br><br>
+                            <input type="text" id="sequence1" name="sequence1" placeholder="Ingrese su secuencia" value="{{ sequence1 }}" maxlength="30" required><br><br>
                             <label for="sequence2">Secuencia 2:</label>
-                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30"><br><br>
+                            <input type="text" id="sequence2" name="sequence2" placeholder="Ingrese su secuencia" value="{{ sequence2 }}" maxlength="30" required><br><br>
                             <div id="additionalInputs">
                                 <!-- Aquí se agregarán dinámicamente los nuevos inputs -->
                             </div>
@@ -171,6 +190,8 @@
                         Alineamiento Global</option>
                     <option value="smith_waterman" {% if operation=='smith_waterman' %} selected {% endif %}>
                         Alineamiento Local</option>
+                    <option value="blosum_proteinas" {% if operation=='blosum_proteinas' %} selected {% endif %}>
+                        Alineamiento de Proteínas</option>
                     <option value="star_alignment" {% if operation=='star_alignment' %} selected {% endif %}>
                         Alineamiento Estrella</option>
                     <option value="Clustering Distancia Mínima" {% if operation=='Clustering Distancia Mínima' %} selected {% endif %} >Clustering Distancia Mínima</option>

@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    .A, .C, .G, .T, .U,
+    .R, .N, .D, .Q, .E, .H, .I, .L, .K, .M, .F, .P, .S, .W, .Y, .V {
+        display: inline-block;
+        width: 30px; /* Ajusta este valor para el tamaño deseado */
+        height: 30px; /* Ajusta este valor para el tamaño deseado */
+        text-align: center;
+        border-radius: 3px;
+        line-height: 30px; /* Igual al alto para centrar verticalmente el texto */
+        margin: -2.2px; 
+        font-weight: bold;
+        font-size: 16px; /* Tamaño de la fuente */
+    }
+    .A { background-color: green; color: white; }
+    .C { background-color: yellow; color: black; }
+    .G { background-color: red; color: white; }
+    .T { background-color: blue; color: white; }
+    .U { background-color: pink; color: black; }
+
+    /* Proteína colors */
+    .R { background-color: #9999ff; } /* Azul claro */
+    .N { background-color: #99ff99; } /* Verde claro */
+    .D { background-color: #ff99ff; } /* Rosa */
+    .Q { background-color: #ffcc99; } /* Naranja claro */
+    .E { background-color: #cc99ff; } /* Violeta claro */
+    .H { background-color: #66ff99; } /* Verde neón */
+    .I { background-color: #99ccff; } /* Azul cielo */
+    .L { background-color: #ff9966; } /* Naranja */
+    .K { background-color: #99ffcc; } /* Turquesa */
+    .M { background-color: #ccff66; } /* Verde limón */
+    .F { background-color: #66ccff; } /* Azul claro */
+    .P { background-color: #ffcc66; } /* Durazno */
+    .S { background-color: #66ffcc; } /* Verde menta */
+    .W { background-color: #ff66cc; } /* Fucsia */
+    .Y { background-color: #66ff66; } /* Verde */
+    .V { background-color: #66cc66; } /* Verde oliva */
+
+    .scrollable-container {
+        max-height: 38%; /* Ajusta este valor según tus necesidades */
+        overflow-y: auto;
+        border: 1px solid #ccc; /* Bordes opcionales para el contenedor */
+        padding: 10px; /* Espaciado interno opcional */
+        margin-top: 20px; /* Espaciado superior opcional */
+    }
+</style>
+
+<h2>Resultados del Alineamiento</h2>
+
+<p><strong>Secuencia 1:</strong></p>
+<p>
+    {% for char in sequence1 %}
+        <span class="{{ char }}">{{ char }}</span>
+    {% endfor %}
+</p>
+
+<p><strong>Secuencia 2:</strong></p>
+<p>
+    {% for char in sequence2 %}
+        <span class="{{ char }}">{{ char }}</span>
+    {% endfor %}
+</p>
+
+<h3>Detalles de la Alineación</h3>
+<p><strong>Matriz:</strong> {{ matrix_name }}</p>
+
+<p><strong>Identidad:</strong> {{ metrics[0][1] }}/{{ metrics[0][0] }} ({{ "%.2f"|format(metrics[0][4]) }}%)</p>
+<p><strong>Similitud:</strong> {{ metrics[0][2] }}/{{ metrics[0][0] }} ({{ "%.2f"|format(metrics[0][5]) }}%)</p>
+<p><strong>Gaps:</strong> {{ metrics[0][3] }}/{{ metrics[0][0] }} ({{ "%.2f"|format(metrics[0][6]) }}%)</p>
+
+
+<p><strong>Score:</strong> {{ score }}</p>
+
+<h3>Alineamientos:</h3>
+<div class="scrollable-container">
+    {% for alineamiento in salida_alineamientos %}
+        <p>
+            {% for char in alineamiento %}
+                {% if char in "RNDQEHIJKLMNOPSWYAGGFTCV" %}
+                    <span class="{{ char }}">{{ char }}</span>
+                {% else %}
+                    {{ char }}
+                {% endif %}
+            {% endfor %}
+        </p>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
