@@ -1,0 +1,129 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Espacio entre las columnas */
+    }
+
+    .column {
+        flex: 1; /* Ajusta las columnas para que se adapten al espacio disponible */
+        min-width: 300px; /* Ancho mínimo para columnas */
+        box-sizing: border-box;
+    }
+
+    .matrix-container {
+        text-align: center;
+        margin-bottom: 20px;
+        width: 80%;
+        margin: 0 auto;
+        /* margin-top: 0%; */
+    }
+
+    .matrix-image {
+        max-width: 100%;
+        border-radius: 30px;
+        padding: 10px;
+        filter: grayscale(10%);
+    }
+
+    .download-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: -8px;
+    }
+
+    .download-button:hover {
+        background-color: #45a049;
+    }
+
+    table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 10px auto; /* Centra la tabla */
+    }
+
+    th, td {
+        border: 2px solid #681d1d;
+        padding: 2px;
+        text-align: center;
+    }
+
+    .scrollable-table {
+        max-height: 50%; /* Ajusta la altura según sea necesario */
+        overflow-y: auto;
+        display: block;
+    }
+
+    .scrollable-list {
+        max-height: 200px; /* Ajusta la altura según sea necesario */
+        overflow-y: auto;
+    }
+</style>
+
+<h2>Estructura Secundaria</h2>
+
+<h3>Secuencia</h3>
+<p>{{ sequence }}</p>
+
+<h3>Matriz de Energía</h3>
+
+<!-- Contenedor de dos columnas -->
+<div class="row">
+    <!-- Primera columna para la tabla -->
+    <div class="column">
+        <p>Score Final: <strong>{{score}}</strong></p>
+
+        <div class="scrollable-table">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        {% for base in sequence %}
+                            <th>{{ base }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(sequence|length) %}
+                        <tr>
+                            <th>{{ sequence[i] }}</th>
+                            {% for j in range(sequence|length) %}
+                                <td>{{ E[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h3>Pares del Traceback</h3>
+
+            <ul>
+                {% for pair in traceback_pairs[1] %}
+                    <li>{{ pair[0] }} - {{ pair[1] }}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+
+    </div>
+
+    <!-- Segunda columna para la imagen -->
+    <div class="column">
+        <div class="matrix-container">
+            <img src="{{ filepath }}" alt="Estructura Secundaria" class="matrix-image">
+        </div>
+
+        <div class="matrix-container">
+            <a href="{{ filepath }}" download="grafico.png" class="download-button">Descargar Estructura Secundaria</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

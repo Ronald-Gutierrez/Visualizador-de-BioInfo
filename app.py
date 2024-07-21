@@ -12,6 +12,7 @@ from algorithms.clustering import clustering
 from algorithms.star_alignment import needleman_wunsch_alignment_star,encontrar_secuencia_central
 from algorithms.matriz_punto import dot_matrix, plot_dot_matrix  # type: ignore
 from algorithms.blosum_protein import align_sequences,calculate_alignment_metrics,format_alignment_output, calculate_alignment_score
+from algorithms.estructure_secondary import calculate_energy_matrix, predict_secondary_structure, traceback,plotData, identify_structures
 
 
 app = Flask(__name__)
@@ -167,6 +168,20 @@ def analizar():
         result = list(enumerate(
             zip(clustering_result, matrices, avg_distances), start=1))
         return render_template("average_linkage.html", matrix=matrix, result=result)
+    
+    elif operation == 'structure_secondary':
+        alpha = {
+            'CG': -1,
+            'GC': -1,
+            'AU': -1,
+            'UA': -1
+        }
+        filepath = 'static/result_img/grafico.png'
+        E, score = predict_secondary_structure(sequence, alpha)
+        traceback_pairs = traceback(sequence, E, alpha)
+        plotData(sequence, traceback_pairs[1], filepath)
+        return render_template('structure_secondary.html', sequence=sequence, E=E,score=score,filepath=filepath, traceback_pairs=traceback_pairs, operation=operation)
+    
     return render_template('index.html')
 
 if __name__ == '__main__':

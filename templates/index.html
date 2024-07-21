@@ -102,6 +102,12 @@
                         <textarea id="distanceMatrix" name="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia"></textarea>
                     `;
                 }
+                else if (operation === "structure_secondary") {
+                    extraInputs.innerHTML = `
+                        <label for="sequence">Secuencia:</label>
+                        <input type="text" id="sequence" name="sequence" placeholder="Ingrese su secuencia de ARN" value="{{ sequence }}" maxlength="30" required><br><br>
+                    `;
+                }
                 else if (operation === "star_alignment") {
                     extraInputs.innerHTML = `
                         <label for="match">Match:</label>
@@ -197,6 +203,8 @@
                     <option value="Clustering Distancia Mínima" {% if operation=='Clustering Distancia Mínima' %} selected {% endif %} >Clustering Distancia Mínima</option>
                     <option value="Clustering Distancia Máxima">Clustering Distancia Máxima</option>
                     <option value="Clustering Distancia Promedio">Clustering Distancia Promedio</option>
+                    <option value="structure_secondary" {% if operation == 'structure_secondary' %}selected {% endif %} >
+                        Estructura Secundaria</option>
                 </select><br><br>
 
                 <div id="input-container" {% if operation=='' %}style="display:none;" {% endif %}>
