@@ -21,6 +21,10 @@ app = Flask(__name__)
 def home():
     return render_template('portada/home.html')
 
+@app.route('/alineaciones')
+def alineaciones():
+    return render_template('portada/gallery.html')
+
 @app.route('/visualizador')
 def index():
     return render_template('index.html')
