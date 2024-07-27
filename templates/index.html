@@ -99,7 +99,7 @@
                 else if (operation === "Clustering Distancia Mínima" || operation === "Clustering Distancia Máxima" || operation === "Clustering Distancia Promedio") {
                     extraInputs.innerHTML = `
                         <label for="distanceMatrix">Matriz de distancia:</label>
-                        <textarea id="distanceMatrix" name="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia"></textarea>
+                        <textarea id="distanceMatrix" name="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia" required></textarea>
                     `;
                 }
                 else if (operation === "structure_secondary") {
@@ -133,7 +133,7 @@
                 else if (operation === "upgma") {
                     extraInputs.innerHTML = `
                         <label for="distanceMatrix">Matriz de distancia:</label>
-                        <textarea id="distanceMatrix" name="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia"></textarea>
+                        <textarea id="distanceMatrix" name="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia" required></textarea>
                     `;
                 }
 
@@ -206,9 +206,9 @@
                         Alineamiento de Proteínas</option>
                     <option value="star_alignment" {% if operation=='star_alignment' %} selected {% endif %}>
                         Alineamiento Estrella</option>
-                    <option value="Clustering Distancia Mínima" {% if operation=='Clustering Distancia Mínima' %} selected {% endif %} >Clustering Distancia Mínima</option>
-                    <option value="Clustering Distancia Máxima">Clustering Distancia Máxima</option>
-                    <option value="Clustering Distancia Promedio">Clustering Distancia Promedio</option>
+                    <option value="Clustering Distancia Mínima" {% if operation=='Clustering Distancia Mínima' %} selected {% endif %} required >Clustering Distancia Mínima</option>
+                    <option value="Clustering Distancia Máxima" required>Clustering Distancia Máxima</option>
+                    <option value="Clustering Distancia Promedio" required>Clustering Distancia Promedio</option>
                     <option value="upgma" {% if operation == 'upgma' %}selected {% endif %} >
                         UPGMA</option>
                     <option value="structure_secondary" {% if operation == 'structure_secondary' %}selected {% endif %} >

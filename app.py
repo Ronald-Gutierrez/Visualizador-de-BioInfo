@@ -13,7 +13,10 @@ from algorithms.star_alignment import needleman_wunsch_alignment_star,encontrar_
 from algorithms.matriz_punto import dot_matrix, plot_dot_matrix  # type: ignore
 from algorithms.blosum_protein import align_sequences,calculate_alignment_metrics,format_alignment_output, calculate_alignment_score
 from algorithms.estructure_secondary import calculate_energy_matrix, predict_secondary_structure, traceback,plotData, identify_structures
-
+from algorithms.upgma import get_clustering_levels,read_distance_matrix,compute_linkage,calculate_distances_and_differences,plot_dendrogram_with_distances
+from scipy.spatial.distance import squareform
+from scipy.cluster.hierarchy import dendrogram, linkage
+import numpy as np
 
 app = Flask(__name__)
 
@@ -181,7 +184,24 @@ def analizar():
         traceback_pairs = traceback(sequence, E, alpha)
         plotData(sequence, traceback_pairs[1], filepath)
         return render_template('structure_secondary.html', sequence=sequence, E=E,score=score,filepath=filepath, traceback_pairs=traceback_pairs, operation=operation)
+    elif operation =='upgma':
+        matrix_input = request.form.get("distanceMatrix")
+        matrix = []
+        for row in matrix_input.splitlines():
+            # Split each row by spaces and convert to integers
+            matrix.append([float(num) for num in row.split()])
+        dist_matrix = np.array(matrix)
+        Z = compute_linkage(dist_matrix)
+        clustering_levels = get_clustering_levels(dist_matrix, Z)
+        avg_distances, differences = calculate_distances_and_differences(Z)
+        plot_dendrogram_with_distances(Z, list(range(1, len(matrix)+1)), avg_distances, differences, 'static/result_img/upgma.png')
+        result = list(enumerate(clustering_levels, start=1))
+
+
+        filepath = 'static/result_img/upgma.png'
+        return render_template("upgma.html", filepath=filepath , clustering_levels=clustering_levels,operation=operation)
     
+
     return render_template('index.html')
 
 
