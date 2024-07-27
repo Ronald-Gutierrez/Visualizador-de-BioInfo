@@ -71,6 +71,7 @@ def analizar():
         score = calcular_score(sequence1, sequence2)
         sub_cadena = buscar_subcadena(sequence1, sequence2)
         return render_template('sub_cadena.html', score=score, sub_cadena=sub_cadena, sequence1=sequence1, sequence2=sequence2, operation=operation)
+
     elif operation == 'needleman_wunsch':
         # Convertir las entradas a enteros
         match = int(match)
@@ -81,6 +82,7 @@ def analizar():
         alineaciones = globalTraceback(
             sequence1, sequence2, match, mismatch, gap)
         return render_template('alineamiento_global.html', score=score, alineaciones=alineaciones, sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, operation=operation)
+
     elif operation == 'smith_waterman':
         match = int(match)
         mismatch = int(mismatch)
@@ -89,6 +91,7 @@ def analizar():
         result = smith_waterman(sequence1, sequence2, match, mismatch, gap)
         size = len(result)
         return render_template('local_alignment.html', sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, result=result, size=size, operation=operation)
+
     elif operation == 'blosum_proteinas':
         matrix_choice = request.form.get('blosumMatrix', '1')
 
@@ -139,7 +142,6 @@ def analizar():
         result = needleman_wunsch_alignment_star(
             sequences, match, mismatch, gap)
         find_secuencia_central = encontrar_secuencia_central(result)
-        return render_template('star_alignment.html', sequences=sequences, find_secuencia_central=find_secuencia_central, sequence1=sequence1, sequence2=sequence2, additional_sequences=additional_sequences, result=result, match=match, mismatch=mismatch, gap=gap, operation=operation)
         return render_template('star_alignment.html', sequences=sequences, find_secuencia_central=find_secuencia_central, sequence1=sequence1, sequence2=sequence2, additional_sequences=additional_sequences, result=result, match=match, mismatch=mismatch, gap=gap, operation=operation)
 
     elif operation == 'Clustering Distancia Mínima':
