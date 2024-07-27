@@ -130,6 +130,12 @@
                     `;
                 
                 }
+                else if (operation === "upgma") {
+                    extraInputs.innerHTML = `
+                        <label for="distanceMatrix">Matriz de distancia:</label>
+                        <textarea id="distanceMatrix" name="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia"></textarea>
+                    `;
+                }
 
             } else {
                 inputContainer.style.display = "none";
@@ -203,6 +209,8 @@
                     <option value="Clustering Distancia Mínima" {% if operation=='Clustering Distancia Mínima' %} selected {% endif %} >Clustering Distancia Mínima</option>
                     <option value="Clustering Distancia Máxima">Clustering Distancia Máxima</option>
                     <option value="Clustering Distancia Promedio">Clustering Distancia Promedio</option>
+                    <option value="upgma" {% if operation == 'upgma' %}selected {% endif %} >
+                        UPGMA</option>
                     <option value="structure_secondary" {% if operation == 'structure_secondary' %}selected {% endif %} >
                         Estructura Secundaria</option>
                 </select><br><br>
