@@ -109,6 +109,10 @@ def analizar():
             sequence1, sequence2, matrix_name)[0], matrix_name, blocksize)
         score = calculate_alignment_score(
             align_sequences(sequence1, sequence2, matrix_name)[0])
+        salida_alineamientos = format_alignment_output(align_sequences(
+            sequence1, sequence2, matrix_name)[0], matrix_name, blocksize)
+        score = calculate_alignment_score(
+            align_sequences(sequence1, sequence2, matrix_name)[0])
         alignments = align_sequences(sequence1, sequence2, matrix_name)
         metrics = [calculate_alignment_metrics(
             alignment) for alignment in alignments]
@@ -135,6 +139,7 @@ def analizar():
         result = needleman_wunsch_alignment_star(
             sequences, match, mismatch, gap)
         find_secuencia_central = encontrar_secuencia_central(result)
+        return render_template('star_alignment.html', sequences=sequences, find_secuencia_central=find_secuencia_central, sequence1=sequence1, sequence2=sequence2, additional_sequences=additional_sequences, result=result, match=match, mismatch=mismatch, gap=gap, operation=operation)
         return render_template('star_alignment.html', sequences=sequences, find_secuencia_central=find_secuencia_central, sequence1=sequence1, sequence2=sequence2, additional_sequences=additional_sequences, result=result, match=match, mismatch=mismatch, gap=gap, operation=operation)
 
     elif operation == 'Clustering Distancia Mínima':
