@@ -51,10 +51,9 @@ def needleman_wunsch_alignment_star(sequences, match, mismatch, gap):
 
 def encontrar_secuencia_central(matriz_puntuacion_final):
     n = len(matriz_puntuacion_final)
-    print(matriz_puntuacion_final)
     max_sum = float('-inf')
     central_sequence = None
-
+    central_index = 0
     for i in range(1, n):
         sum_distance = 0
         for j in range(1, n):
@@ -64,39 +63,13 @@ def encontrar_secuencia_central(matriz_puntuacion_final):
         if sum_distance > max_sum:
             max_sum = sum_distance
             central_sequence = matriz_puntuacion_final[i][0]
-
-    return central_sequence, max_sum
+            central_index = i-1
+    return central_sequence, max_sum, central_index
 
 
 def pairwise_distance(seq1, seq2, match, mismatch, gap):
     score, _ = needleman_wunsch_score(seq1, seq2, match, mismatch, gap)
     return score
-
-
-def create_distance_matrix(sequences, match, mismatch, gap):
-    num_sequences = len(sequences)
-    distance_matrix = [[0] * num_sequences for _ in range(num_sequences)]
-    for i in range(num_sequences):
-        for j in range(i + 1, num_sequences):
-            score = pairwise_distance(
-                sequences[i], sequences[j], match, mismatch, gap)
-            distance_matrix[i][j] = distance_matrix[j][i] = score
-    return distance_matrix
-
-
-def find_center_sequence(distance_matrix):
-    max_score = float('-inf')
-    star = 0
-    index = 0
-    for i in distance_matrix:
-        sum = 0
-        for j in i:
-            sum += j
-        if sum > max_score:
-            max_score = sum
-            star = index
-        index += 1
-    return star
 
 
 def align_to_center(sequences, center_index, match, mismatch, gap):
