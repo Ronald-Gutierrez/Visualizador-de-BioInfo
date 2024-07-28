@@ -1,4 +1,4 @@
-from alineamiento_global import globalTraceback, needleman_wunsch_score
+from algorithms.alineamiento_global import globalTraceback, needleman_wunsch_score
 
 
 def needleman_wunsch_alignment_star(sequences, match, mismatch, gap):
