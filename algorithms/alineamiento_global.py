@@ -1,5 +1,4 @@
 def needleman_wunsch_score(seq1, seq2, match_score, mismatch_score, gap_penalty):
-    global dp
     len_seq1 = len(seq1)
     len_seq2 = len(seq2)
 
@@ -19,11 +18,10 @@ def needleman_wunsch_score(seq1, seq2, match_score, mismatch_score, gap_penalty)
             dp[i][j] = max(diagonal, left, up)
 
     final_score = dp[len_seq1][len_seq2]
-    return final_score
+    return final_score, dp
 
 
-def globalTraceback(sequence1: str, sequence2: str, match_score, mismatch_score, gap_penalty):
-    global dp
+def globalTraceback(dp, sequence1: str, sequence2: str, match_score, mismatch_score, gap_penalty):
     alignments = []
     i = len(sequence1)
     j = len(sequence2)
@@ -43,18 +41,3 @@ def globalTraceback(sequence1: str, sequence2: str, match_score, mismatch_score,
                       sequence2[j - 1] + alignment_seq2)
     backtrack(i, j, "", "")
     return alignments
-
-
-# def needleman_wunsch_alignment(seq1, seq2, match_score, mismatch_score, gap_penalty):
-#     global dp
-#     needleman_wunsch_score(seq1, seq2, match_score,
-#                            mismatch_score, gap_penalty)
-
-#     alignments = []
-#     alignment_seq1 = ""
-#     alignment_seq2 = ""
-
-#     backtrack(alignments, seq1, seq2, len(seq1), len(seq2), alignment_seq1,
-#               alignment_seq2, match_score, mismatch_score, gap_penalty)
-
-#     return alignments

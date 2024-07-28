@@ -77,10 +77,10 @@ def analizar():
         match = int(match)
         mismatch = int(mismatch)
         gap = int(gap)
-        score = needleman_wunsch_score(
+        score, dp = needleman_wunsch_score(
             sequence1, sequence2, match, mismatch, gap)
         alineaciones = globalTraceback(
-            sequence1, sequence2, match, mismatch, gap)
+            dp, sequence1, sequence2, match, mismatch, gap)
         return render_template('alineamiento_global.html', score=score, alineaciones=alineaciones, sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, operation=operation)
 
     elif operation == 'smith_waterman':

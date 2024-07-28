@@ -1,3 +1,6 @@
+from alineamiento_global import globalTraceback, needleman_wunsch_score
+
+
 def needleman_wunsch_alignment_star(sequences, match, mismatch, gap):
     n = len(sequences)
     matriz_puntuacion_final = [[0] * (n + 1) for _ in range(n + 1)]
@@ -63,3 +66,60 @@ def encontrar_secuencia_central(matriz_puntuacion_final):
             central_sequence = matriz_puntuacion_final[i][0]
 
     return central_sequence, max_sum
+
+
+def pairwise_distance(seq1, seq2, match, mismatch, gap):
+    score, _ = needleman_wunsch_score(seq1, seq2, match, mismatch, gap)
+    return score
+
+
+def create_distance_matrix(sequences, match, mismatch, gap):
+    num_sequences = len(sequences)
+    distance_matrix = [[0] * num_sequences for _ in range(num_sequences)]
+    for i in range(num_sequences):
+        for j in range(i + 1, num_sequences):
+            score = pairwise_distance(
+                sequences[i], sequences[j], match, mismatch, gap)
+            distance_matrix[i][j] = distance_matrix[j][i] = score
+    return distance_matrix
+
+
+def find_center_sequence(distance_matrix):
+    max_score = float('-inf')
+    star = 0
+    index = 0
+    for i in distance_matrix:
+        sum = 0
+        for j in i:
+            sum += j
+        if sum > max_score:
+            max_score = sum
+            star = index
+        index += 1
+    return star
+
+
+def align_to_center(sequences, center_index, match, mismatch, gap):
+    center_sequence = sequences[center_index]
+    aligned_sequences = []
+    for i, seq in enumerate(sequences):
+        if i != center_index:
+            _, dp = needleman_wunsch_score(
+                center_sequence, seq, match, mismatch, gap)
+            align = globalTraceback(
+                dp, center_sequence, seq, match, mismatch, gap)
+            # align1, align2, _ = needleman_wunsch(center_sequence, seq)
+            aligned_sequences.append(align[-1])
+    return aligned_sequences
+
+
+def merge_alignments(center_seq, aligned_sequences):
+    msa = [center_seq]
+    for center_aligned, seq_aligned in aligned_sequences:
+        if len(center_aligned) > len(msa[0]):
+            msa = [s.ljust(len(center_aligned), '-') for s in msa]
+        elif len(center_aligned) < len(msa[0]):
+            center_aligned = center_aligned.ljust(len(msa[0]), '-')
+            seq_aligned = seq_aligned.ljust(len(msa[0]), '-')
+        msa.append(seq_aligned)
+    return msa
