@@ -33,6 +33,62 @@
         flex: 50%;
         padding: 10px;
     }
+
+    .sequence {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .sequence span {
+        display: inline-block;
+        padding: 5px;
+        margin: 0px;
+        border-radius: 3px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    pre {
+        font-size: 1.2em;
+        /* Tamaño de letra más grande */
+    }
+
+    .A {
+        background-color: green;
+        color: white;
+    }
+
+    .C {
+        background-color: yellow;
+        color: black;
+    }
+
+    .G {
+        background-color: red;
+        color: white;
+    }
+
+    .T {
+        background-color: blue;
+        color: white;
+    }
+
+    .U {
+        background-color: pink;
+        color: black;
+    }
+
+    .alignment-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        max-height: 150px;
+        /* Altura máxima del card */
+        overflow-y: auto;
+        /* Habilita scroll vertical si el contenido excede la altura máxima */
+    }
 </style>
 
 <div class="row">
@@ -59,14 +115,39 @@
     </div>
     <div class="column">
         <h3>Secuencias alineadas con <strong>{{ find_secuencia_central[0] }}</strong>:</h3>
-        {% for al in aligned_sequences %}
-        <ul>Alineamiento {{loop.index}}: {{al}}</ul>
-        {% endfor %}
+        <div class="alignment-card">
+            <ul>
+                {% for al in aligned_sequences %}
+                <li>
+                    <pre class="sequence" style="white-space: nowrap;">
+                        {% for char in al[0] %}
+                            <span class="{{ char }}">{{ char }}</span>
+                        {% endfor %}
+                    </pre>
+                    <pre class="sequence" style="white-space: nowrap;">
+                        {% for char in al[1] %}
+                            <span class="{{ char }}">{{ char }}</span>
+                        {% endfor %}
+                    </pre>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
 
         <h3>Alineamiento Multiple <strong>{{ find_secuencia_central[0] }}</strong>:</h3>
-        {% for m in msa %}
-        <ul>{{m}}</ul>
-        {% endfor %}
+        <div class="alignment-card">
+            <ul>
+                {% for m in msa %}
+                <li>
+                    <pre class="sequence" style="white-space: nowrap;">
+                        {% for char in m %}
+                            <span class="{{ char }}">{{ char }}</span>
+                        {% endfor %}
+                    </pre>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 
 </div>
