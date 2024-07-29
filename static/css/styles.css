@@ -6,9 +6,10 @@
     margin-top: 20px;
     background-attachment: fixed;
 }
+
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 5px;
     background-color: #f0f0f0;
 }
 
@@ -16,13 +17,14 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
 .header {
     display: flex;
     align-items: center;
-  }
-  
+}
+
 .form-container {
-    width: 15%;
+    width: 20%;
     height: 90vh;
     background-color: #fff;
     color: #f0f0f0;
@@ -30,7 +32,6 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #2c3e50;
-
 }
 
 .result-container {
@@ -80,6 +81,7 @@ input[type="text"] {
     font-size: 16px;
     box-sizing: border-box;
 }
+
 input[type="number"] {
     width: 25%;
     padding: 10px;
@@ -111,7 +113,7 @@ input[type="submit"]:hover {
     width: 24px;
     height: 24px;
     margin-right: 10px;
-  }
+}
 
 #analyzeButton {
     background-color: #e74c3c;
@@ -122,6 +124,7 @@ input[type="submit"]:hover {
     cursor: pointer;
     width: 100%;
 }
+
 #additionalInputStart {
     background-color: #3498db;
     color: rgb(17, 17, 17);
@@ -133,25 +136,36 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
     font-size: 15px;
 }
+
 #resetButton {
 
     border: none;
-    padding: 10px 20px; /* Ajusta el padding para incluir la imagen */
+    padding: 10px 20px;
+    /* Ajusta el padding para incluir la imagen */
     border-radius: 4px;
     cursor: pointer;
-    width: auto; /* Ajusta según sea necesario */
-    position: absolute; /* Para posicionar el botón de forma absoluta */
-    z-index: 1000; /* Asegúrate de que el botón esté encima de otros elementos */
-    top: 4%; /* Ajusta según sea necesario para posicionar el botón verticalmente */
-    left: 95.5%; /* Para centrar horizontalmente */
-    transform: translateX(-50%); /* Para centrar horizontalmente */
+    width: auto;
+    /* Ajusta según sea necesario */
+    position: absolute;
+    /* Para posicionar el botón de forma absoluta */
+    z-index: 1000;
+    /* Asegúrate de que el botón esté encima de otros elementos */
+    top: 4%;
+    /* Ajusta según sea necesario para posicionar el botón verticalmente */
+    left: 93%;
+    /* Para centrar horizontalmente */
+    transform: translateX(-50%);
+    /* Para centrar horizontalmente */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .button-icon {
-    width: 20px; /* Ajusta el tamaño de la imagen */
-    height: 20px; /* Ajusta el tamaño de la imagen */
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    width: 20px;
+    /* Ajusta el tamaño de la imagen */
+    height: 20px;
+    /* Ajusta el tamaño de la imagen */
+    margin-right: 10px;
+    /* Espacio entre la imagen y el texto */
 }
