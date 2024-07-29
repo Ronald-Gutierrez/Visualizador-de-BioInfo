@@ -1,19 +1,22 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
+
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>GenoBio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by VISUALIZADOR" />
-	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="keywords"
+		content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="freehtml5.co" />
 
 
 
-	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700"
+		rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="static/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -32,41 +35,47 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-	<style>	
+	<style>
 		.yellow-text {
 			color: yellow;
 		}
+
 		.white-text {
 			color: white;
 		}
+
 		.fh5co-section p {
 			color: white;
 		}
+
 		.fh5co-section h2 {
 			color: white;
 		}
+
 		.fh5co-blog p {
 			color: white;
 		}
-		.fh5co-blog li, .fh5co-section h3 {
+
+		.fh5co-blog li,
+		.fh5co-section h3 {
 			color: rgb(255, 255, 255);
 		}
-
-		
-
-
 	</style>
-	</head>
-	<body>
-		
+</head>
+
+<body>
+
 	<div class="fh5co-loader"></div>
-	
+
 	<div id="page">
-	    <nav class="fh5co-nav" role="navigation">
+		<nav class="fh5co-nav" role="navigation">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 text-center logo-wrap">
-						<div id="fh5co-logo"><a href="#home"><span><img src="{{ url_for('static', filename='svg/logo_white.svg') }}" alt="Logo" style="margin-left: 1px; margin-top: -10px; height: 40px;"></span>GenoBio</a></div>
+						<div id="fh5co-logo"><a href="#home"><span><img
+										src="{{ url_for('static', filename='svg/logo_white.svg') }}" alt="Logo"
+										style="margin-left: 1px; margin-top: -10px; height: 40px;"></span>GenoBio</a>
+						</div>
 					</div>
 					<div class="col-xs-12 text-center menu-1 menu-wrap">
 						<ul>
@@ -97,514 +106,742 @@
 									<li><a href="#similitud_promedio">Similitud Promedio</a></li>
 								</ul>
 							</li>
-	
+
 							<li><a href="#estructura_secundaria">Estructura Secundaria</a></li>
 						</ul>
 					</div>
 				</div>
-				
+
 			</div>
 		</nav>
 
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(static/images/hero_1.jpg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1>Vizualizador de </em> ADN, ARN y PROTEINAS</h1>
-							<h2>Puedes acceder a la herramienta en <a href="{{ url_for('index') }}">VISUALIZADOR</a></h2>
+		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner"
+			style="background-image: url(static/images/hero_1.jpg);" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="display-t js-fullheight">
+							<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+								<h1>Visualizador de </em> ADN, ARN y PROTEINAS</h1>
+								<h2>Puedes acceder a la herramienta en <a href="{{ url_for('index') }}">VISUALIZADOR</a>
+								</h2>
 
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 
-	<div id="fh5co-about" class="fh5co-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
-					<img src="static/images/conept_bio.jpg" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
-				</div>
-				<div class="col-md-5 col-md-push-1 animate-box">
-					<div class="section-heading">
-						<h2>La Bioinformática</h2>
-						<p style="color: white;">La bioinformática es una disciplina crucial que integra la biología, la informática y las matemáticas para analizar y entender datos biológicos. Uno de los conceptos clave en bioinformática es la secuenciación genómica, que permite determinar el orden exacto de nucleótidos en un ADN. Esta tecnología es fundamental para descifrar la información genética de los organismos, facilitando la identificación de genes, la comprensión de variaciones genéticas y el estudio de enfermedades.</p>
-						<p style="color: white;">El análisis de secuencias genómicas puede revelar insights sobre la estructura y función de genes y proteínas, permitiendo aplicaciones en la medicina personalizada, la biotecnología y la investigación en salud. Herramientas bioinformáticas avanzadas permiten realizar alineamientos de secuencias, construir árboles filogenéticos y predecir estructuras secundarias de proteínas, entre otras tareas.</p>
+		<div id="fh5co-about" class="fh5co-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
+						<img src="static/images/conept_bio.jpg"
+							alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
 					</div>
-					
+					<div class="col-md-5 col-md-push-1 animate-box">
+						<div class="section-heading">
+							<h2>La Bioinformática</h2>
+							<p style="color: white;">La bioinformática es una disciplina crucial que integra la
+								biología, la informática y las matemáticas para analizar y entender datos biológicos.
+								Uno de los conceptos clave en bioinformática es la secuenciación genómica, que permite
+								determinar el orden exacto de nucleótidos en un ADN. Esta tecnología es fundamental para
+								descifrar la información genética de los organismos, facilitando la identificación de
+								genes, la comprensión de variaciones genéticas y el estudio de enfermedades.</p>
+							<p style="color: white;">El análisis de secuencias genómicas puede revelar insights sobre la
+								estructura y función de genes y proteínas, permitiendo aplicaciones en la medicina
+								personalizada, la biotecnología y la investigación en salud. Herramientas
+								bioinformáticas avanzadas permiten realizar alineamientos de secuencias, construir
+								árboles filogenéticos y predecir estructuras secundarias de proteínas, entre otras
+								tareas.</p>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
 
-	<div id="fh5co-blog" class="fh5co-section">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Ácidos Nucleicos</h2>
-					<p>Los ácidos nucleicos son biomoléculas grandes que desempeñan un papel fundamental en todas las células y virus. Estas moléculas, que incluyen el ADN (ácido desoxirribonucleico) y el ARN (ácido ribonucleico), son esenciales para el almacenamiento y la expresión de la información genética. El ADN almacena la información hereditaria necesaria para el desarrollo, funcionamiento y reproducción de los organismos. Por su parte, el ARN es crucial para la transcripción y traducción de esa información genética en proteínas, facilitando así la función celular y la regulación de los procesos biológicos. Juntas, estas biomoléculas aseguran la continuidad de la vida y la transmisión de características hereditarias de generación en generación.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box fh5co-price">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/adn.jpg);"></a>
-						<div class="blog-text">
-							<h3 class="yellow-text">ADN (Ácido Desoxirribonucleico)</h3>
-							<p><strong class="white-text">¿Qué es el ADN?</strong></p>
-							<p>
-								El ADN es una molécula fundamental en biología que almacena la información genética de los organismos vivos. Su estructura es una doble hélice formada por dos cadenas antiparalelas de nucleótidos. Cada nucleótido consta de un grupo fosfato, un azúcar (desoxirribosa) y una base nitrogenada (adenina, timina, citosina o guanina). Las bases nitrogenadas en las dos cadenas se emparejan mediante enlaces de hidrógeno (adenina con timina y citosina con guanina), formando el esquema de doble hélice.
-							</p>
-							<p><strong class="white-text">Composición:</strong></p>
-							<ul>
-								<li><strong>Fosfato:</strong> Grupo fosfato que forma el esqueleto de la molécula.</li>
-								<li><strong>Azúcar:</strong> Desoxirribosa, el azúcar de cinco carbonos en el ADN.</li>
-								<li><strong>Base Nitrogenada:</strong> Adenina (A), Timina (T), Citosina (C) o Guanina (G).</li>
-							</ul>
-							<p><strong class="white-text">Funciones:</strong></p>
-							<ul>
-								<li><strong>Almacenamiento Genético:</strong> Contiene las instrucciones para el desarrollo y funcionamiento de los organismos.</li>
-								<li><strong>Transmisión:</strong> Se replica durante la división celular para transmitir la información genética a las células hijas.</li>
-							</ul>
-							<p><strong class="white-text">Importancia:</strong></p>
-							<p>
-								El ADN es esencial para la herencia genética, la reproducción y la variabilidad biológica. Su estudio es crucial para entender enfermedades genéticas, la evolución y el desarrollo de nuevas terapias.
-							</p>
-						</div> 
+
+		<div id="fh5co-blog" class="fh5co-section">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2>Ácidos Nucleicos</h2>
+						<p>Los ácidos nucleicos son biomoléculas grandes que desempeñan un papel fundamental en todas
+							las células y virus. Estas moléculas, que incluyen el ADN (ácido desoxirribonucleico) y el
+							ARN (ácido ribonucleico), son esenciales para el almacenamiento y la expresión de la
+							información genética. El ADN almacena la información hereditaria necesaria para el
+							desarrollo, funcionamiento y reproducción de los organismos. Por su parte, el ARN es crucial
+							para la transcripción y traducción de esa información genética en proteínas, facilitando así
+							la función celular y la regulación de los procesos biológicos. Juntas, estas biomoléculas
+							aseguran la continuidad de la vida y la transmisión de características hereditarias de
+							generación en generación.</p>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/arn.jpg);"></a>
-						<div class="blog-text">
-							<h3 class="yellow-text">ARN (Ácido Ribonucleico)</h3>
-							<p><strong class="white-text">¿Qué es el ARN?</strong></p>
-							<p>
-								El ARN es una molécula similar al ADN, pero de cadena simple y con ribosa como azúcar en lugar de desoxirribosa. Además, contiene uracilo en lugar de timina. Existen varios tipos de ARN, cada uno con funciones específicas en la célula. La estructura del ARN es lineal y puede adoptar diversas conformaciones secundarias, como horquillas y bucles.
-							</p>
-							<p><strong class="white-text">Composición:</strong></p>
-							<ul>
-								<li><strong>Fosfato:</strong> Grupo fosfato que forma el esqueleto de la molécula.</li>
-								<li><strong>Azúcar:</strong> Ribosa, el azúcar de cinco carbonos en el ARN.</li>
-								<li><strong>Base Nitrogenada:</strong> Adenina (A), Uracilo (U), Citosina (C) o Guanina (G).</li>
-							</ul>
-							<p><strong class="white-text">Tipos y Funciones:</strong></p>
-							<ul>
-								<li><strong>ARN Mensajero (ARNm):</strong> Transporta la información genética del ADN al ribosoma, donde se traduce en proteínas.</li>
-								<li><strong>ARN de Transferencia (ARNt):</strong> Transporta aminoácidos al ribosoma para la síntesis de proteínas.</li>
-								<li><strong>ARN Ribosómico (ARNr):</strong> Forma parte del ribosoma y facilita la síntesis de proteínas.</li>
-							</ul>
-							<p><strong class="white-text">Importancia:</strong></p>
-							<p>
-								El ARN es clave en la expresión génica y la síntesis de proteínas. Sin ARN, la información genética del ADN no podría ser utilizada para construir las proteínas esenciales para la vida.
-							</p>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/proteina.jpg);"></a>
-						<div class="blog-text">
-							<div class="fh5co-item">
-								<h3 class="yellow-text">PROTEÍNAS</h3>
-								<p><strong class="white-text">¿Qué son las proteínas?</strong></p>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="fh5co-blog animate-box fh5co-price">
+							<a href="#" class="blog-bg" style="background-image: url(static/images/adn.jpg);"></a>
+							<div class="blog-text">
+								<h3 class="yellow-text">ADN (Ácido Desoxirribonucleico)</h3>
+								<p><strong class="white-text">¿Qué es el ADN?</strong></p>
 								<p>
-									Las proteínas son macromoléculas compuestas por cadenas de aminoácidos. Existen 20 aminoácidos diferentes que se combinan en secuencias específicas para formar proteínas. La estructura tridimensional de las proteínas se determina por su secuencia de aminoácidos, que se pliega en estructuras secundarias como hélices alfa y láminas beta, y se organiza en una estructura terciaria y cuaternaria.
+									El ADN es una molécula fundamental en biología que almacena la información genética
+									de los organismos vivos. Su estructura es una doble hélice formada por dos cadenas
+									antiparalelas de nucleótidos. Cada nucleótido consta de un grupo fosfato, un azúcar
+									(desoxirribosa) y una base nitrogenada (adenina, timina, citosina o guanina). Las
+									bases nitrogenadas en las dos cadenas se emparejan mediante enlaces de hidrógeno
+									(adenina con timina y citosina con guanina), formando el esquema de doble hélice.
 								</p>
 								<p><strong class="white-text">Composición:</strong></p>
 								<ul>
-									<li><strong>Aminoácidos:</strong> Unidades básicas de las proteínas que contienen un grupo amino, un grupo carboxilo, un átomo de hidrógeno y una cadena lateral (grupo R) específica para cada aminoácido.</li>
-									<li><strong>Enlaces Peptídicos:</strong> Enlaces que unen los aminoácidos en una cadena polipeptídica.</li>
+									<li><strong>Fosfato:</strong> Grupo fosfato que forma el esqueleto de la molécula.
+									</li>
+									<li><strong>Azúcar:</strong> Desoxirribosa, el azúcar de cinco carbonos en el ADN.
+									</li>
+									<li><strong>Base Nitrogenada:</strong> Adenina (A), Timina (T), Citosina (C) o
+										Guanina (G).</li>
 								</ul>
 								<p><strong class="white-text">Funciones:</strong></p>
 								<ul>
-									<li><strong>Enzimática:</strong> Catalizan reacciones bioquímicas, acelerando procesos metabólicos.</li>
-									<li><strong>Estructural:</strong> Forman estructuras celulares como el colágeno y la queratina.</li>
-									<li><strong>Regulatoria:</strong> Controlan funciones biológicas a través de hormonas y otras moléculas reguladoras.</li>
-									<li><strong>Defensiva:</strong> Participan en la respuesta inmune, como los anticuerpos.</li>
+									<li><strong>Almacenamiento Genético:</strong> Contiene las instrucciones para el
+										desarrollo y funcionamiento de los organismos.</li>
+									<li><strong>Transmisión:</strong> Se replica durante la división celular para
+										transmitir la información genética a las células hijas.</li>
 								</ul>
 								<p><strong class="white-text">Importancia:</strong></p>
 								<p>
-									Las proteínas son esenciales para casi todas las funciones biológicas. Sin ellas, las células no podrían realizar sus funciones básicas, y muchos procesos metabólicos y fisiológicos se verían afectados.
+									El ADN es esencial para la herencia genética, la reproducción y la variabilidad
+									biológica. Su estudio es crucial para entender enfermedades genéticas, la evolución
+									y el desarrollo de nuevas terapias.
 								</p>
 							</div>
-						</div> 
+						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-	<div id="transcripcion" class="fh5co-section">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2 class="white-text">Transcripción</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/transcripcion.jpg);"></a>
-
-						<div class="blog-text">
-							<h3 class="yellow-text">Transcripción</h3>
-							<p>La transcripción es el proceso fundamental mediante el cual la información genética contenida en una cadena de ADN se transcribe a una molécula de ARN mensajero (ARNm). Este proceso es crucial para la síntesis de proteínas y la regulación de la expresión genética en las células. Durante la transcripción, la ARN polimerasa se une a una región específica del ADN, conocida como el promotor, y cataliza la síntesis de una cadena de ARN complementaria a la cadena de ADN molde.</p>
-							<p><strong>Proceso:</strong> La ARN polimerasa lee la secuencia de ADN y, utilizando nucleótidos de ARN, construye una cadena de ARN que es complementaria a la cadena de ADN molde. Una vez completada, la cadena de ARN mensajero (ARNm) se separa del ADN y sale del núcleo celular hacia el ribosoma para la síntesis de proteínas.</p>
-							<p><strong>Importancia:</strong> La transcripción permite que la información genética contenida en el ADN sea utilizada para producir proteínas, que son esenciales para casi todas las funciones celulares. Además, la transcripción es un paso clave en la regulación génica, ya que controla qué genes se expresan en una célula en un momento dado.</p>
-							<p><strong>Ejemplo:</strong> Si se tiene un gen en el ADN con la secuencia <code>5'-ATGCTAGC-3'</code>, durante la transcripción, la ARN polimerasa sintetiza una cadena de ARN mensajero con la secuencia <code>5'-AUGCUAGC-3'</code>. Esta secuencia de ARN mensajero lleva la información necesaria para la síntesis de la proteína correspondiente en los ribosomas.</p>
-							<p><strong>¿Cómo Funciona el Proceso?</strong> La ARN polimerasa se une al promotor en el ADN y comienza a desenrollar la doble hélice del ADN. Luego, lee la secuencia de ADN en dirección 3' a 5' y utiliza nucleótidos de ARN para construir una cadena de ARN en dirección 5' a 3'. Este ARN mensajero recién sintetizado se procesa y se transporta fuera del núcleo celular hacia los ribosomas, donde se traduce en una proteína.</p>
+					<div class="col-md-4">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg" style="background-image: url(static/images/arn.jpg);"></a>
+							<div class="blog-text">
+								<h3 class="yellow-text">ARN (Ácido Ribonucleico)</h3>
+								<p><strong class="white-text">¿Qué es el ARN?</strong></p>
+								<p>
+									El ARN es una molécula similar al ADN, pero de cadena simple y con ribosa como
+									azúcar en lugar de desoxirribosa. Además, contiene uracilo en lugar de timina.
+									Existen varios tipos de ARN, cada uno con funciones específicas en la célula. La
+									estructura del ARN es lineal y puede adoptar diversas conformaciones secundarias,
+									como horquillas y bucles.
+								</p>
+								<p><strong class="white-text">Composición:</strong></p>
+								<ul>
+									<li><strong>Fosfato:</strong> Grupo fosfato que forma el esqueleto de la molécula.
+									</li>
+									<li><strong>Azúcar:</strong> Ribosa, el azúcar de cinco carbonos en el ARN.</li>
+									<li><strong>Base Nitrogenada:</strong> Adenina (A), Uracilo (U), Citosina (C) o
+										Guanina (G).</li>
+								</ul>
+								<p><strong class="white-text">Tipos y Funciones:</strong></p>
+								<ul>
+									<li><strong>ARN Mensajero (ARNm):</strong> Transporta la información genética del
+										ADN al ribosoma, donde se traduce en proteínas.</li>
+									<li><strong>ARN de Transferencia (ARNt):</strong> Transporta aminoácidos al ribosoma
+										para la síntesis de proteínas.</li>
+									<li><strong>ARN Ribosómico (ARNr):</strong> Forma parte del ribosoma y facilita la
+										síntesis de proteínas.</li>
+								</ul>
+								<p><strong class="white-text">Importancia:</strong></p>
+								<p>
+									El ARN es clave en la expresión génica y la síntesis de proteínas. Sin ARN, la
+									información genética del ADN no podría ser utilizada para construir las proteínas
+									esenciales para la vida.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg" style="background-image: url(static/images/proteina.jpg);"></a>
+							<div class="blog-text">
+								<div class="fh5co-item">
+									<h3 class="yellow-text">PROTEÍNAS</h3>
+									<p><strong class="white-text">¿Qué son las proteínas?</strong></p>
+									<p>
+										Las proteínas son macromoléculas compuestas por cadenas de aminoácidos. Existen
+										20 aminoácidos diferentes que se combinan en secuencias específicas para formar
+										proteínas. La estructura tridimensional de las proteínas se determina por su
+										secuencia de aminoácidos, que se pliega en estructuras secundarias como hélices
+										alfa y láminas beta, y se organiza en una estructura terciaria y cuaternaria.
+									</p>
+									<p><strong class="white-text">Composición:</strong></p>
+									<ul>
+										<li><strong>Aminoácidos:</strong> Unidades básicas de las proteínas que
+											contienen un grupo amino, un grupo carboxilo, un átomo de hidrógeno y una
+											cadena lateral (grupo R) específica para cada aminoácido.</li>
+										<li><strong>Enlaces Peptídicos:</strong> Enlaces que unen los aminoácidos en una
+											cadena polipeptídica.</li>
+									</ul>
+									<p><strong class="white-text">Funciones:</strong></p>
+									<ul>
+										<li><strong>Enzimática:</strong> Catalizan reacciones bioquímicas, acelerando
+											procesos metabólicos.</li>
+										<li><strong>Estructural:</strong> Forman estructuras celulares como el colágeno
+											y la queratina.</li>
+										<li><strong>Regulatoria:</strong> Controlan funciones biológicas a través de
+											hormonas y otras moléculas reguladoras.</li>
+										<li><strong>Defensiva:</strong> Participan en la respuesta inmune, como los
+											anticuerpos.</li>
+									</ul>
+									<p><strong class="white-text">Importancia:</strong></p>
+									<p>
+										Las proteínas son esenciales para casi todas las funciones biológicas. Sin
+										ellas, las células no podrían realizar sus funciones básicas, y muchos procesos
+										metabólicos y fisiológicos se verían afectados.
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	
-	<div id="alineamientos" class="fh5co-section">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2 class="white-text" >Alineamientos de Secuencias</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/matriz_d.jpg);"></a>
 
-						<div class="blog-text">
-							<h3 class="yellow-text" id="alineamiento_matriz_punto">Alineamiento Matriz de Punto</h3>
-							<p>El alineamiento con matriz de puntos utiliza una matriz de puntuaciones para evaluar la similitud entre pares de nucleótidos o aminoácidos. Este método se basa en un esquema de puntuación para alinear secuencias, donde se asignan puntos a coincidencias y penalizaciones a desajustes y gaps. Por ejemplo, en un alineamiento de nucleótidos, se puede usar una matriz simple donde las coincidencias reciben +1 punto, los desajustes -1 punto y los gaps -2 puntos.</p>
-							<p><strong>Algoritmo:</strong> Método de Alineamiento Local basado en matrices.</p>
-							<p><strong>Ejemplo:</strong> Para alinear las secuencias <em>ATG</em> y <em>ATC</em> con una matriz de puntuación simple, el resultado sería una puntuación que refleja la similitud global considerando coincidencias y desajustes.</p>
-						</div>
+
+
+		<div id="transcripcion" class="fh5co-section">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2 class="white-text">Transcripción</h2>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/global.jpg);"></a>
-						<div class="blog-text">
-							<h3 class="yellow-text" id="alineamiento_global">Alineamiento Global</h3>
-							<p>El alineamiento global busca alinear dos secuencias en su totalidad. Este método es adecuado cuando las secuencias son similares en longitud y contienen la misma información biológica. El algoritmo de Needleman-Wunsch se usa comúnmente para este tipo de alineamiento. Utiliza una matriz de puntuación y penalizaciones para gaps para calcular el mejor alineamiento global posible.</p>
-							<p><strong>Algoritmo:</strong> Needleman-Wunsch.</p>
-							<p><strong>Parámetros:</strong> Matriz de puntuación para coincidencias y desajustes, penalización por gaps.</p>
-							<p><strong>Ejemplo:</strong> Alinear <em>AGCTG</em> con <em>AGCT</em> para encontrar el alineamiento global que optimiza la puntuación total teniendo en cuenta coincidencias, desajustes y gaps.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/local.jpg);"></a>
-						<div class="blog-text">
-							<h3 class="yellow-text" id="alineamiento_local">Alineamiento Local</h3>
-							<p>El alineamiento local se enfoca en encontrar la región más similar entre dos secuencias. Utiliza el algoritmo de Smith-Waterman, que busca la mejor alineación local posible. Este método es útil para detectar regiones conservadas entre secuencias que pueden ser de longitudes diferentes.</p>
-							<p><strong>Algoritmo:</strong> Smith-Waterman.</p>
-							<p><strong>Parámetros:</strong> Matriz de puntuación, penalización por gaps.</p>
-							<p><strong>Ejemplo:</strong> Para las secuencias <em>ACTG</em> y <em>ACCTG</em>, el alineamiento local puede encontrar la región <em>ACTG</em> como la más similar, ignorando la diferencia al final de <em>ACCTG</em>.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/proteinas_blosum.jpg);"></a>
-						<div class="blog-text">
-							<h3 class="yellow-text" id="alineamiento_proteinas">Alineamiento de Proteínas</h3>
-							<p>El alineamiento de proteínas utiliza matrices de sustitución como Blosum o PAM para evaluar la similitud entre secuencias de proteínas. Estas matrices asignan puntuaciones a las sustituciones entre aminoácidos basándose en observaciones empíricas. La matriz Blosum (Blocks Substitution Matrix) y la matriz PAM (Point Accepted Mutation) son ejemplos comunes.</p>
-							<p><strong>Algoritmo:</strong> Alineamiento Global o Local con matrices de sustitución.</p>
-							<p><strong>Parámetros:</strong> Matriz de sustitución (Blosum o PAM), penalización por gaps.</p>
-							<p><strong>Ejemplo:</strong> Alinear las secuencias de proteínas <em>MAEV</em> y <em>MAFV</em> usando una matriz Blosum para encontrar el alineamiento que maximiza la similitud considerando sustituciones de aminoácidos.</p>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg"
+								style="background-image: url(static/images/transcripcion.jpg);"></a>
+
+							<div class="blog-text">
+								<h3 class="yellow-text">Transcripción</h3>
+								<p>La transcripción es el proceso fundamental mediante el cual la información genética
+									contenida en una cadena de ADN se transcribe a una molécula de ARN mensajero (ARNm).
+									Este proceso es crucial para la síntesis de proteínas y la regulación de la
+									expresión genética en las células. Durante la transcripción, la ARN polimerasa se
+									une a una región específica del ADN, conocida como el promotor, y cataliza la
+									síntesis de una cadena de ARN complementaria a la cadena de ADN molde.</p>
+								<p><strong>Proceso:</strong> La ARN polimerasa lee la secuencia de ADN y, utilizando
+									nucleótidos de ARN, construye una cadena de ARN que es complementaria a la cadena de
+									ADN molde. Una vez completada, la cadena de ARN mensajero (ARNm) se separa del ADN y
+									sale del núcleo celular hacia el ribosoma para la síntesis de proteínas.</p>
+								<p><strong>Importancia:</strong> La transcripción permite que la información genética
+									contenida en el ADN sea utilizada para producir proteínas, que son esenciales para
+									casi todas las funciones celulares. Además, la transcripción es un paso clave en la
+									regulación génica, ya que controla qué genes se expresan en una célula en un momento
+									dado.</p>
+								<p><strong>Ejemplo:</strong> Si se tiene un gen en el ADN con la secuencia
+									<code>5'-ATGCTAGC-3'</code>, durante la transcripción, la ARN polimerasa sintetiza
+									una cadena de ARN mensajero con la secuencia <code>5'-AUGCUAGC-3'</code>. Esta
+									secuencia de ARN mensajero lleva la información necesaria para la síntesis de la
+									proteína correspondiente en los ribosomas.</p>
+								<p><strong>¿Cómo Funciona el Proceso?</strong> La ARN polimerasa se une al promotor en
+									el ADN y comienza a desenrollar la doble hélice del ADN. Luego, lee la secuencia de
+									ADN en dirección 3' a 5' y utiliza nucleótidos de ARN para construir una cadena de
+									ARN en dirección 5' a 3'. Este ARN mensajero recién sintetizado se procesa y se
+									transporta fuera del núcleo celular hacia los ribosomas, donde se traduce en una
+									proteína.</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<div id="alineamientos_multiple" class="fh5co-section">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2 class="white-text">Alineamiento Múltiple</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/estrella.jpg);"></a>
-						<div class="blog-text">
-							<h3 class="yellow-text" id="alineamiento_estrella">Alineamiento Estrella</h3>
-							<p>El alineamiento estrella es un enfoque para el alineamiento múltiple de secuencias en el que se selecciona una secuencia central y se alinea con otras secuencias. Esta secuencia central sirve como referencia para alinear las secuencias adicionales en relación con ella.</p>
-							<p><strong>Algoritmo:</strong> Método Estrella (Star Method).</p>
-							<p><strong>Parámetros:</strong> Secuencia central, matriz de puntuación, penalización por gaps.</p>
-							<p><strong>Ejemplo:</strong> Si se tienen las secuencias <em>A</em>, <em>B</em>, <em>C</em>, se elige <em>A</em> como la secuencia central. Luego, se alinean <em>B</em> y <em>C</em> en relación con <em>A</em>. Esto facilita la comparación de todas las secuencias con una referencia común.</p>
-							<p><strong>¿Cómo Funciona el Algoritmo?</strong> El método estrella empieza por seleccionar una secuencia como referencia central. Luego, alinea cada una de las otras secuencias con esta secuencia central. Los alineamientos se realizan de manera que se minimice la penalización por gaps y se maximice la puntuación de alineamiento. Este enfoque es útil para manejar un número grande de secuencias al simplificar el proceso de alineamiento.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<div class="blog-text">
-							<h3 class="yellow-text" id="neighbor_join">Neighbor Joining</h3>
-							<p>El algoritmo Neighbor Joining es utilizado para construir árboles filogenéticos basados en distancias entre secuencias. Este método calcula las distancias entre todas las secuencias y construye un árbol que minimiza la distancia total entre las secuencias agrupadas, ayudando a reconstruir las relaciones evolutivas.</p>
-							<p><strong>Algoritmo:</strong> Neighbor Joining.</p>
-							<p><strong>Parámetros:</strong> Matriz de distancias entre secuencias.</p>
-							<p><strong>Ejemplo:</strong> Para construir un árbol filogenético para las secuencias <em>A</em>, <em>B</em>, <em>C</em>, el algoritmo calcula una matriz de distancias entre cada par de secuencias. Luego, utiliza esta matriz para construir un árbol que minimiza la distancia total entre todas las secuencias agrupadas, revelando sus relaciones evolutivas.</p>
-							<p><strong>¿Cómo Funciona el Algoritmo?</strong> Neighbor Joining empieza con una matriz de distancias entre secuencias. Luego, iterativamente agrupa las secuencias más cercanas (con menor distancia) en un nodo del árbol. Este proceso se repite hasta que todas las secuencias están agrupadas en un árbol que representa las relaciones evolutivas. El objetivo es crear un árbol que tenga la menor distancia total de agrupamiento, reflejando así las relaciones más cercanas entre las secuencias.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	
-	<div id="clustering" class="fh5co-section">
-		<div class="container">
-			<div class="row animate-box">
-				
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2 class="white-text">Clustering</h2>
-					<img src="static/images/dendogramas.png" alt="Clustering" style="width: 100%; margin-top: 20px;">
 
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
 
-						<div class="blog-text">
-							<h3 class="yellow-text" id="similitud_maxima">Similitud Máxima</h3>
-							<p>El clustering de similitud máxima agrupa secuencias en base al mayor grado de similitud entre ellas. Este método agrupa las secuencias más similares en un solo clúster, permitiendo identificar grupos de secuencias estrechamente relacionadas.</p>
-							<p><strong>Algoritmo:</strong> Algoritmo de Agrupamiento Basado en Similitud Máxima.</p>
-							<p><strong>Parámetros:</strong> Umbral de similitud, matriz de similitud.</p>
-							<p><strong>Ejemplo:</strong> Dado un conjunto de secuencias con una matriz de similitud, se agrupan las secuencias con los valores más altos de similitud entre sí, formando clústeres basados en estos valores.</p>
-						</div>
+		<div id="alineamientos" class="fh5co-section">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2 class="white-text">Alineamientos de Secuencias</h2>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<div class="blog-text">
-							<h3 class="yellow-text" id="similitud_minima">Similitud Mínima</h3>
-							<p>El clustering de similitud mínima se enfoca en agrupar secuencias en base a la menor similitud permitida entre ellas. Este enfoque puede ser útil para identificar agrupaciones de secuencias con bajo grado de relación.</p>
-							<p><strong>Algoritmo:</strong> Algoritmo de Agrupamiento Basado en Similitud Mínima.</p>
-							<p><strong>Parámetros:</strong> Umbral de similitud mínima, matriz de similitud.</p>
-							<p><strong>Ejemplo:</strong> Se agrupan secuencias que tienen una similitud por debajo de un umbral específico, creando grupos de secuencias que son menos similares entre sí.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<div class="blog-text">
-							<h3 class="yellow-text" id="similitud_promedio">Similitud Promedio</h3>
-							<p>El clustering de similitud promedio utiliza el promedio de las similitudes entre secuencias para formar grupos. Este método proporciona una visión general del agrupamiento basado en un criterio de similitud intermedia.</p>
-							<p><strong>Algoritmo:</strong> Algoritmo de Agrupamiento Basado en Similitud Promedio.</p>
-							<p><strong>Parámetros:</strong> Umbral de similitud promedio, matriz de similitud.</p>
-							<p><strong>Ejemplo:</strong> Calculando el promedio de similitud entre todas las secuencias dentro de un clúster, y agrupando aquellas que tienen un promedio de similitud por encima de un umbral especificado.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="filogenia" class="fh5co-section">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2 class="white-text">Filogenia</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/filogenia.png);"></a>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg" style="background-image: url(static/images/matriz_d.jpg);"></a>
 
-						<div class="blog-text">
-							<h3 class="yellow-text">¿Qué es la Filogenia?</h3>
-							<p>La filogenia es la rama de la biología que estudia las relaciones evolutivas entre los organismos. Utiliza la información genética, morfológica y molecular para reconstruir el árbol de la vida, mostrando cómo diferentes especies están relacionadas y cómo han evolucionado a partir de un ancestro común.</p>
-	
-							<h3 class="yellow-text">¿Para qué se usa?</h3>
-							<p>La filogenia se usa para comprender la historia evolutiva de los organismos, identificar ancestros comunes, clasificar especies y estudiar la evolución de características específicas. Es fundamental en áreas como la taxonomía, la evolución comparada y la biología molecular.</p>
-	
-							<h3 class="yellow-text">Ejemplo Simple</h3>
-							<p>Consideremos tres especies de plantas: Rosa, Clavel y Girasol. Al analizar sus secuencias genéticas, podemos construir un árbol filogenético que ilustre sus relaciones evolutivas. Si Rosa y Clavel tienen una secuencia genética más similar entre sí que con Girasol, el árbol filogenético mostrará que Rosa y Clavel están más estrechamente relacionados y comparten un ancestro común más reciente.</p>
-	
-							<h3 class="yellow-text">Algoritmos Utilizados</h3>
-							<p>Para construir árboles filogenéticos, se utilizan diversos algoritmos y métodos. Algunos de los más comunes incluyen:</p>
-							<ul>
-								<li><strong>Algoritmo de Neighbor-Joining (NJ):</strong> Este algoritmo agrupa secuencias en función de la distancia genética y es conocido por su rapidez y eficacia en la construcción de árboles filogenéticos.</li>
-								<li><strong>Algoritmo de Máxima Parsimonia (MP):</strong> Busca el árbol que minimiza el número total de cambios evolutivos, asumiendo que la evolución ocurre de la manera más simple posible.</li>
-								<li><strong>Algoritmo de Máxima Verosimilitud (ML):</strong> Evalúa la probabilidad de un árbol dado, considerando un modelo evolutivo específico para estimar las relaciones más probables entre las secuencias.</li>
-							</ul>
-	
-							<h3 class="yellow-text">Cómo se Forma el Árbol Filogenético</h3>
-							<p>La formación de un árbol filogenético generalmente sigue varios pasos clave:</p>
-							<ol>
-								<li><strong>Selección de Secuencias:</strong> Se seleccionan las secuencias de ADN, ARN o proteínas que se van a comparar.</li>
-								<li><strong>Alineamiento de Secuencias:</strong> Las secuencias seleccionadas se alinean para identificar regiones homólogas, utilizando programas como ClustalW, MUSCLE o MAFFT.</li>
-								<li><strong>Cálculo de Distancias:</strong> Se calcula una matriz de distancias entre las secuencias alineadas, utilizando modelos de sustitución como Jukes-Cantor o Kimura.</li>
-								<li><strong>Construcción del Árbol:</strong> Se utiliza un algoritmo para construir el árbol filogenético a partir de la matriz de distancias o los datos de alineamiento.</li>
-								<li><strong>Evaluación del Árbol:</strong> Se evalúa la robustez del árbol utilizando métodos de remuestreo como el bootstrap.</li>
-							</ol>
-	
-							<h3 class="yellow-text">Métodos Adicionales</h3>
-							<p>Además de los algoritmos mencionados, existen otros métodos para construir y analizar árboles filogenéticos:</p>
-							<ul>
-								<li><strong>Método de Máxima Compatibilidad:</strong> Identifica el árbol que maximiza el número de caracteres que son consistentes con el árbol.</li>
-								<li><strong>Bayesian Inference:</strong> Utiliza técnicas estadísticas bayesianas para estimar la probabilidad de diferentes árboles filogenéticos, basándose en modelos de evolución molecular.</li>
-								<li><strong>Método UPGMA (Unweighted Pair Group Method with Arithmetic Mean):</strong> Es un método de agrupamiento jerárquico que asume una tasa de evolución constante y se usa para construir dendrogramas.</li>
-								<li><strong>Maximum Likelihood (ML):</strong> Evalúa diferentes posibles árboles y selecciona el que tiene la mayor probabilidad de haber producido los datos observados, basándose en un modelo evolutivo específico.</li>
-							</ul>
-							<p>Estas herramientas y métodos permiten a los biólogos construir y analizar árboles filogenéticos que ayudan a entender la evolución y la biodiversidad de los organismos.</p>
+							<div class="blog-text">
+								<h3 class="yellow-text" id="alineamiento_matriz_punto">Alineamiento Matriz de Punto</h3>
+								<p>El alineamiento con matriz de puntos utiliza una matriz de puntuaciones para evaluar
+									la similitud entre pares de nucleótidos o aminoácidos. Este método se basa en un
+									esquema de puntuación para alinear secuencias, donde se asignan puntos a
+									coincidencias y penalizaciones a desajustes y gaps. Por ejemplo, en un alineamiento
+									de nucleótidos, se puede usar una matriz simple donde las coincidencias reciben +1
+									punto, los desajustes -1 punto y los gaps -2 puntos.</p>
+								<p><strong>Algoritmo:</strong> Método de Alineamiento Local basado en matrices.</p>
+								<p><strong>Ejemplo:</strong> Para alinear las secuencias <em>ATG</em> y <em>ATC</em> con
+									una matriz de puntuación simple, el resultado sería una puntuación que refleja la
+									similitud global considerando coincidencias y desajustes.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg" style="background-image: url(static/images/global.jpg);"></a>
+							<div class="blog-text">
+								<h3 class="yellow-text" id="alineamiento_global">Alineamiento Global</h3>
+								<p>El alineamiento global busca alinear dos secuencias en su totalidad. Este método es
+									adecuado cuando las secuencias son similares en longitud y contienen la misma
+									información biológica. El algoritmo de Needleman-Wunsch se usa comúnmente para este
+									tipo de alineamiento. Utiliza una matriz de puntuación y penalizaciones para gaps
+									para calcular el mejor alineamiento global posible.</p>
+								<p><strong>Algoritmo:</strong> Needleman-Wunsch.</p>
+								<p><strong>Parámetros:</strong> Matriz de puntuación para coincidencias y desajustes,
+									penalización por gaps.</p>
+								<p><strong>Ejemplo:</strong> Alinear <em>AGCTG</em> con <em>AGCT</em> para encontrar el
+									alineamiento global que optimiza la puntuación total teniendo en cuenta
+									coincidencias, desajustes y gaps.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg" style="background-image: url(static/images/local.jpg);"></a>
+							<div class="blog-text">
+								<h3 class="yellow-text" id="alineamiento_local">Alineamiento Local</h3>
+								<p>El alineamiento local se enfoca en encontrar la región más similar entre dos
+									secuencias. Utiliza el algoritmo de Smith-Waterman, que busca la mejor alineación
+									local posible. Este método es útil para detectar regiones conservadas entre
+									secuencias que pueden ser de longitudes diferentes.</p>
+								<p><strong>Algoritmo:</strong> Smith-Waterman.</p>
+								<p><strong>Parámetros:</strong> Matriz de puntuación, penalización por gaps.</p>
+								<p><strong>Ejemplo:</strong> Para las secuencias <em>ACTG</em> y <em>ACCTG</em>, el
+									alineamiento local puede encontrar la región <em>ACTG</em> como la más similar,
+									ignorando la diferencia al final de <em>ACCTG</em>.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg"
+								style="background-image: url(static/images/proteinas_blosum.jpg);"></a>
+							<div class="blog-text">
+								<h3 class="yellow-text" id="alineamiento_proteinas">Alineamiento de Proteínas</h3>
+								<p>El alineamiento de proteínas utiliza matrices de sustitución como Blosum o PAM para
+									evaluar la similitud entre secuencias de proteínas. Estas matrices asignan
+									puntuaciones a las sustituciones entre aminoácidos basándose en observaciones
+									empíricas. La matriz Blosum (Blocks Substitution Matrix) y la matriz PAM (Point
+									Accepted Mutation) son ejemplos comunes.</p>
+								<p><strong>Algoritmo:</strong> Alineamiento Global o Local con matrices de sustitución.
+								</p>
+								<p><strong>Parámetros:</strong> Matriz de sustitución (Blosum o PAM), penalización por
+									gaps.</p>
+								<p><strong>Ejemplo:</strong> Alinear las secuencias de proteínas <em>MAEV</em> y
+									<em>MAFV</em> usando una matriz Blosum para encontrar el alineamiento que maximiza
+									la similitud considerando sustituciones de aminoácidos.</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	
-	<div id="estructura_secundaria" class="fh5co-section">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2 class="white-text">Estructura Secundaria</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(static/images/estructurasec.png);"></a>
 
-						<div class="blog-text">
-							<h3 class="yellow-text">¿Qué es la Estructura Secundaria?</h3>
-							<p>La estructura secundaria de una proteína se refiere a los patrones de plegamiento localizados en la cadena polipeptídica, que son estabilizados por enlaces de hidrógeno. Estos patrones incluyen las hélices alfa (α), las láminas beta (β) y los giros. La estructura secundaria es esencial para la estabilidad y función de la proteína, ya que determina la disposición local de los átomos en la cadena polipeptídica.</p>
-	
-							<h3 class="yellow-text">Elementos de la Estructura Secundaria</h3>
-							<ul>
-								<li><strong>Hélices Alfa (α):</strong> Son estructuras en espiral en las que cada vuelta de la hélice está estabilizada por enlaces de hidrógeno entre los átomos de hidrógeno de un grupo amino y los átomos de oxígeno de un grupo carbonilo.</li>
-								<li><strong>Láminas Beta (β):</strong> Están formadas por cadenas polipeptídicas extendidas que se pliegan en una estructura plegada en zigzag. Las láminas beta pueden estar en paralelo o antiparalelo y están estabilizadas por enlaces de hidrógeno entre cadenas adyacentes.</li>
-								<li><strong>Giros y Bucles:</strong> Son regiones que conectan hélices alfa y láminas beta y permiten cambios en la dirección de la cadena polipeptídica. Los giros suelen tener una estructura compacta y a menudo estabilizan la estructura global de la proteína.</li>
-							</ul>
-	
-							<h3 class="yellow-text">Ejemplo de Diagrama de Estructura Secundaria</h3>
-							<p>Un diagrama de estructura secundaria de una proteína podría mostrar una serie de hélices alfa y láminas beta dispuestas en un patrón específico, con giros y bucles conectando estos elementos. Por ejemplo, en una proteína que se une a una molécula pequeña, la disposición de las hélices alfa y láminas beta puede ser crucial para la creación del sitio de unión.</p>
-	
-							<h3 class="yellow-text">Algoritmos para el Análisis de la Estructura Secundaria</h3>
-							<p>Para predecir y visualizar la estructura secundaria de las proteínas, se utilizan varios algoritmos y herramientas computacionales:</p>
-							<ul>
-								<li><strong>Algoritmo de Chou-Fasman:</strong> Utiliza un conjunto de reglas basadas en la frecuencia de aminoácidos en hélices alfa y láminas beta para predecir la estructura secundaria.</li>
-								<li><strong>Algoritmo de Garnier-Osguthorpe-Robson (GOR):</strong> Basado en un modelo estadístico de la secuencia de aminoácidos y su entorno, proporciona predicciones precisas de la estructura secundaria.</li>
-								<li><strong>Programas de Predicción:</strong> Herramientas como PSIPRED y JPred utilizan algoritmos de aprendizaje automático para predecir la estructura secundaria a partir de la secuencia de aminoácidos.</li>
-							</ul>
-							<p>Estos algoritmos ayudan a los biólogos a entender cómo se pliega una proteína y cómo su estructura secundaria contribuye a su función biológica.</p>
+		<div id="alineamientos_multiple" class="fh5co-section">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2 class="white-text">Alineamiento Múltiple</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg" style="background-image: url(static/images/estrella.jpg);"></a>
+							<div class="blog-text">
+								<h3 class="yellow-text" id="alineamiento_estrella">Alineamiento Estrella</h3>
+								<p>El alineamiento estrella es un enfoque para el alineamiento múltiple de secuencias en
+									el que se selecciona una secuencia central y se alinea con otras secuencias. Esta
+									secuencia central sirve como referencia para alinear las secuencias adicionales en
+									relación con ella.</p>
+								<p><strong>Algoritmo:</strong> Método Estrella (Star Method).</p>
+								<p><strong>Parámetros:</strong> Secuencia central, matriz de puntuación, penalización
+									por gaps.</p>
+								<p><strong>Ejemplo:</strong> Si se tienen las secuencias <em>A</em>, <em>B</em>,
+									<em>C</em>, se elige <em>A</em> como la secuencia central. Luego, se alinean
+									<em>B</em> y <em>C</em> en relación con <em>A</em>. Esto facilita la comparación de
+									todas las secuencias con una referencia común.</p>
+								<p><strong>¿Cómo Funciona el Algoritmo?</strong> El método estrella empieza por
+									seleccionar una secuencia como referencia central. Luego, alinea cada una de las
+									otras secuencias con esta secuencia central. Los alineamientos se realizan de manera
+									que se minimice la penalización por gaps y se maximice la puntuación de
+									alineamiento. Este enfoque es útil para manejar un número grande de secuencias al
+									simplificar el proceso de alineamiento.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="fh5co-blog animate-box">
+							<div class="blog-text">
+								<h3 class="yellow-text" id="neighbor_join">Neighbor Joining</h3>
+								<p>El algoritmo Neighbor Joining es utilizado para construir árboles filogenéticos
+									basados en distancias entre secuencias. Este método calcula las distancias entre
+									todas las secuencias y construye un árbol que minimiza la distancia total entre las
+									secuencias agrupadas, ayudando a reconstruir las relaciones evolutivas.</p>
+								<p><strong>Algoritmo:</strong> Neighbor Joining.</p>
+								<p><strong>Parámetros:</strong> Matriz de distancias entre secuencias.</p>
+								<p><strong>Ejemplo:</strong> Para construir un árbol filogenético para las secuencias
+									<em>A</em>, <em>B</em>, <em>C</em>, el algoritmo calcula una matriz de distancias
+									entre cada par de secuencias. Luego, utiliza esta matriz para construir un árbol que
+									minimiza la distancia total entre todas las secuencias agrupadas, revelando sus
+									relaciones evolutivas.</p>
+								<p><strong>¿Cómo Funciona el Algoritmo?</strong> Neighbor Joining empieza con una matriz
+									de distancias entre secuencias. Luego, iterativamente agrupa las secuencias más
+									cercanas (con menor distancia) en un nodo del árbol. Este proceso se repite hasta
+									que todas las secuencias están agrupadas en un árbol que representa las relaciones
+									evolutivas. El objetivo es crear un árbol que tenga la menor distancia total de
+									agrupamiento, reflejando así las relaciones más cercanas entre las secuencias.</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	
 
 
-	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(static/images/autores.jpg); background-size: 120% auto; background-position: center;" data-stellar-background-ratio="0.3">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Un Reconocimiento a los Pioneros de la Bioinformática</h2>
-					<p>
-						La bioinformática ha sido moldeada por las contribuciones de numerosos pioneros. Los primeros avances en esta disciplina fueron realizados por científicos visionarios como <strong>Margaret Dayhoff</strong> (1960-1970), quien fundó el primer banco de datos de proteínas y desarrolló la matriz PAM para el alineamiento de secuencias. <strong>Walter Fitch</strong> (1970-1980) y <strong>Michael S. Waterman</strong> (1980) hicieron avances significativos en el análisis filogenético y el alineamiento de secuencias. Posteriormente, <strong>David Lipman</strong> (1990) y <strong>Stephen Altschul</strong> (1990) crearon el algoritmo BLAST, fundamental para la comparación de secuencias biológicas. Más recientemente, <strong>Richard Durbin</strong> (2000) desarrolló modelos estadísticos importantes, <strong>Gene Myers</strong> (2000) contribuyó al análisis de grandes volúmenes de datos genéticos, y <strong>Rafael Irizarry</strong> (2000) ha trabajado en la normalización de datos de microarrays, mejorando el análisis genómico.
-					</p>
-					<p><a href="https://es.wikipedia.org/wiki/Bioinform%C3%A1tica" class="btn btn-primary btn-outline">Visita este sitio Web</a></p>
+		<div id="clustering" class="fh5co-section">
+			<div class="container">
+				<div class="row animate-box">
+
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2 class="white-text">Clustering</h2>
+						<img src="static/images/dendogramas.png" alt="Clustering"
+							style="width: 100%; margin-top: 20px;">
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="fh5co-blog animate-box">
+
+							<div class="blog-text">
+								<h3 class="yellow-text" id="similitud_maxima">Similitud Máxima</h3>
+								<p>El clustering de similitud máxima agrupa secuencias en base al mayor grado de
+									similitud entre ellas. Este método agrupa las secuencias más similares en un solo
+									clúster, permitiendo identificar grupos de secuencias estrechamente relacionadas.
+								</p>
+								<p><strong>Algoritmo:</strong> Algoritmo de Agrupamiento Basado en Similitud Máxima.</p>
+								<p><strong>Parámetros:</strong> Umbral de similitud, matriz de similitud.</p>
+								<p><strong>Ejemplo:</strong> Dado un conjunto de secuencias con una matriz de similitud,
+									se agrupan las secuencias con los valores más altos de similitud entre sí, formando
+									clústeres basados en estos valores.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="fh5co-blog animate-box">
+							<div class="blog-text">
+								<h3 class="yellow-text" id="similitud_minima">Similitud Mínima</h3>
+								<p>El clustering de similitud mínima se enfoca en agrupar secuencias en base a la menor
+									similitud permitida entre ellas. Este enfoque puede ser útil para identificar
+									agrupaciones de secuencias con bajo grado de relación.</p>
+								<p><strong>Algoritmo:</strong> Algoritmo de Agrupamiento Basado en Similitud Mínima.</p>
+								<p><strong>Parámetros:</strong> Umbral de similitud mínima, matriz de similitud.</p>
+								<p><strong>Ejemplo:</strong> Se agrupan secuencias que tienen una similitud por debajo
+									de un umbral específico, creando grupos de secuencias que son menos similares entre
+									sí.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="fh5co-blog animate-box">
+							<div class="blog-text">
+								<h3 class="yellow-text" id="similitud_promedio">Similitud Promedio</h3>
+								<p>El clustering de similitud promedio utiliza el promedio de las similitudes entre
+									secuencias para formar grupos. Este método proporciona una visión general del
+									agrupamiento basado en un criterio de similitud intermedia.</p>
+								<p><strong>Algoritmo:</strong> Algoritmo de Agrupamiento Basado en Similitud Promedio.
+								</p>
+								<p><strong>Parámetros:</strong> Umbral de similitud promedio, matriz de similitud.</p>
+								<p><strong>Ejemplo:</strong> Calculando el promedio de similitud entre todas las
+									secuencias dentro de un clúster, y agrupando aquellas que tienen un promedio de
+									similitud por encima de un umbral especificado.</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
+		<div id="filogenia" class="fh5co-section">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2 class="white-text">Filogenia</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg" style="background-image: url(static/images/filogenia.png);"></a>
 
-	<footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
-		<div class="container">
-			<div class="row row-pb-md">
-				<div class="col-md-4 fh5co-widget">
-					<h4>Sobre Bioinformática</h4>
-					<p>Explora el fascinante mundo de la bioinformática, donde la biología se encuentra con la informática. Aquí abordamos conceptos fundamentales, aplicaciones avanzadas y herramientas clave en el análisis de secuencias biológicas.</p>
-				</div>
-				<div class="col-md-2 col-md-push-1 fh5co-widget">
-					<h4>Enlaces</h4>
-					<ul class="fh5co-footer-links">
-						<li><a href="#fh5co-about">Introducción</a></li>
-						<li><a href="#fh5co-blog">Conceptos Clave</a></li>
-						<li><a href="#transcripcion">Algoritmos</a></li>
-						<!-- <li><a href="#applications">Aplicaciones</a></li> -->
-					</ul>
-				</div>
-			
-				<div class="col-md-2 col-md-push-1 fh5co-widget">
-					<h4>Categorías</h4>
-					<ul class="fh5co-footer-links">
-						<li><a href="#transcripcion">Transcripción</a></li>
-						<li><a href="#alineamientos">Alineamiento de Secuencias</a></li>
-						<li><a href="#alineamientos_multiple">Alineamiento Multiple</a></li>
-						<li><a href="#clustering">Clustering</a></li>		
-						<li><a href="#filogenia">Filogenia</a></li>
-						<li><a href="#estructura_secundaria">Estructura Secundaria</a></li>
-						<!-- <li><a href="#data-analysis">Análisis de Datos</a></li> -->
-						<li><a href="{{ url_for('index') }}">Herramientas de Software</a></li>
-						<!-- <li><a href="#resources">Recursos</a></li> -->
-					</ul>
-				</div>
-			
-				<div class="col-md-4 col-md-push-1 fh5co-widget">
-					<h4>Información de Contacto</h4>
-					<ul class="fh5co-footer-links">
-						<li>Universidad Nacional de San Agustinm de Arequipa</li>
-						<li><a href="tel://925238121">+51 925238121</a></li>
-						<li><a href="mailto:rgutierrezar@unsa.edu.pe">rgutierrezar@unsa.edu.pe</a></li>
-						<li><a href="mailto:fmattosc@unsa.edu.pe">fmattosc@unsa.edu.pe</a></li>
-						<!-- <li><a href="https://bioinformaticaymás.com">bioinformaticaymás.com</a></li> -->
-					</ul>
+							<div class="blog-text">
+								<h3 class="yellow-text">¿Qué es la Filogenia?</h3>
+								<p>La filogenia es la rama de la biología que estudia las relaciones evolutivas entre
+									los organismos. Utiliza la información genética, morfológica y molecular para
+									reconstruir el árbol de la vida, mostrando cómo diferentes especies están
+									relacionadas y cómo han evolucionado a partir de un ancestro común.</p>
+
+								<h3 class="yellow-text">¿Para qué se usa?</h3>
+								<p>La filogenia se usa para comprender la historia evolutiva de los organismos,
+									identificar ancestros comunes, clasificar especies y estudiar la evolución de
+									características específicas. Es fundamental en áreas como la taxonomía, la evolución
+									comparada y la biología molecular.</p>
+
+								<h3 class="yellow-text">Ejemplo Simple</h3>
+								<p>Consideremos tres especies de plantas: Rosa, Clavel y Girasol. Al analizar sus
+									secuencias genéticas, podemos construir un árbol filogenético que ilustre sus
+									relaciones evolutivas. Si Rosa y Clavel tienen una secuencia genética más similar
+									entre sí que con Girasol, el árbol filogenético mostrará que Rosa y Clavel están más
+									estrechamente relacionados y comparten un ancestro común más reciente.</p>
+
+								<h3 class="yellow-text">Algoritmos Utilizados</h3>
+								<p>Para construir árboles filogenéticos, se utilizan diversos algoritmos y métodos.
+									Algunos de los más comunes incluyen:</p>
+								<ul>
+									<li><strong>Algoritmo de Neighbor-Joining (NJ):</strong> Este algoritmo agrupa
+										secuencias en función de la distancia genética y es conocido por su rapidez y
+										eficacia en la construcción de árboles filogenéticos.</li>
+									<li><strong>Algoritmo de Máxima Parsimonia (MP):</strong> Busca el árbol que
+										minimiza el número total de cambios evolutivos, asumiendo que la evolución
+										ocurre de la manera más simple posible.</li>
+									<li><strong>Algoritmo de Máxima Verosimilitud (ML):</strong> Evalúa la probabilidad
+										de un árbol dado, considerando un modelo evolutivo específico para estimar las
+										relaciones más probables entre las secuencias.</li>
+								</ul>
+
+								<h3 class="yellow-text">Cómo se Forma el Árbol Filogenético</h3>
+								<p>La formación de un árbol filogenético generalmente sigue varios pasos clave:</p>
+								<ol>
+									<li><strong>Selección de Secuencias:</strong> Se seleccionan las secuencias de ADN,
+										ARN o proteínas que se van a comparar.</li>
+									<li><strong>Alineamiento de Secuencias:</strong> Las secuencias seleccionadas se
+										alinean para identificar regiones homólogas, utilizando programas como ClustalW,
+										MUSCLE o MAFFT.</li>
+									<li><strong>Cálculo de Distancias:</strong> Se calcula una matriz de distancias
+										entre las secuencias alineadas, utilizando modelos de sustitución como
+										Jukes-Cantor o Kimura.</li>
+									<li><strong>Construcción del Árbol:</strong> Se utiliza un algoritmo para construir
+										el árbol filogenético a partir de la matriz de distancias o los datos de
+										alineamiento.</li>
+									<li><strong>Evaluación del Árbol:</strong> Se evalúa la robustez del árbol
+										utilizando métodos de remuestreo como el bootstrap.</li>
+								</ol>
+
+								<h3 class="yellow-text">Métodos Adicionales</h3>
+								<p>Además de los algoritmos mencionados, existen otros métodos para construir y analizar
+									árboles filogenéticos:</p>
+								<ul>
+									<li><strong>Método de Máxima Compatibilidad:</strong> Identifica el árbol que
+										maximiza el número de caracteres que son consistentes con el árbol.</li>
+									<li><strong>Bayesian Inference:</strong> Utiliza técnicas estadísticas bayesianas
+										para estimar la probabilidad de diferentes árboles filogenéticos, basándose en
+										modelos de evolución molecular.</li>
+									<li><strong>Método UPGMA (Unweighted Pair Group Method with Arithmetic
+											Mean):</strong> Es un método de agrupamiento jerárquico que asume una tasa
+										de evolución constante y se usa para construir dendrogramas.</li>
+									<li><strong>Maximum Likelihood (ML):</strong> Evalúa diferentes posibles árboles y
+										selecciona el que tiene la mayor probabilidad de haber producido los datos
+										observados, basándose en un modelo evolutivo específico.</li>
+								</ul>
+								<p>Estas herramientas y métodos permiten a los biólogos construir y analizar árboles
+									filogenéticos que ayudan a entender la evolución y la biodiversidad de los
+									organismos.</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			
+		</div>
+
+
+		<div id="estructura_secundaria" class="fh5co-section">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+						<h2 class="white-text">Estructura Secundaria</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="fh5co-blog animate-box">
+							<a href="#" class="blog-bg"
+								style="background-image: url(static/images/estructurasec.png);"></a>
+
+							<div class="blog-text">
+								<h3 class="yellow-text">¿Qué es la Estructura Secundaria?</h3>
+								<p>La estructura secundaria de una proteína se refiere a los patrones de plegamiento
+									localizados en la cadena polipeptídica, que son estabilizados por enlaces de
+									hidrógeno. Estos patrones incluyen las hélices alfa (α), las láminas beta (β) y los
+									giros. La estructura secundaria es esencial para la estabilidad y función de la
+									proteína, ya que determina la disposición local de los átomos en la cadena
+									polipeptídica.</p>
+
+								<h3 class="yellow-text">Elementos de la Estructura Secundaria</h3>
+								<ul>
+									<li><strong>Hélices Alfa (α):</strong> Son estructuras en espiral en las que cada
+										vuelta de la hélice está estabilizada por enlaces de hidrógeno entre los átomos
+										de hidrógeno de un grupo amino y los átomos de oxígeno de un grupo carbonilo.
+									</li>
+									<li><strong>Láminas Beta (β):</strong> Están formadas por cadenas polipeptídicas
+										extendidas que se pliegan en una estructura plegada en zigzag. Las láminas beta
+										pueden estar en paralelo o antiparalelo y están estabilizadas por enlaces de
+										hidrógeno entre cadenas adyacentes.</li>
+									<li><strong>Giros y Bucles:</strong> Son regiones que conectan hélices alfa y
+										láminas beta y permiten cambios en la dirección de la cadena polipeptídica. Los
+										giros suelen tener una estructura compacta y a menudo estabilizan la estructura
+										global de la proteína.</li>
+								</ul>
+
+								<h3 class="yellow-text">Ejemplo de Diagrama de Estructura Secundaria</h3>
+								<p>Un diagrama de estructura secundaria de una proteína podría mostrar una serie de
+									hélices alfa y láminas beta dispuestas en un patrón específico, con giros y bucles
+									conectando estos elementos. Por ejemplo, en una proteína que se une a una molécula
+									pequeña, la disposición de las hélices alfa y láminas beta puede ser crucial para la
+									creación del sitio de unión.</p>
+
+								<h3 class="yellow-text">Algoritmos para el Análisis de la Estructura Secundaria</h3>
+								<p>Para predecir y visualizar la estructura secundaria de las proteínas, se utilizan
+									varios algoritmos y herramientas computacionales:</p>
+								<ul>
+									<li><strong>Algoritmo de Chou-Fasman:</strong> Utiliza un conjunto de reglas basadas
+										en la frecuencia de aminoácidos en hélices alfa y láminas beta para predecir la
+										estructura secundaria.</li>
+									<li><strong>Algoritmo de Garnier-Osguthorpe-Robson (GOR):</strong> Basado en un
+										modelo estadístico de la secuencia de aminoácidos y su entorno, proporciona
+										predicciones precisas de la estructura secundaria.</li>
+									<li><strong>Programas de Predicción:</strong> Herramientas como PSIPRED y JPred
+										utilizan algoritmos de aprendizaje automático para predecir la estructura
+										secundaria a partir de la secuencia de aminoácidos.</li>
+								</ul>
+								<p>Estos algoritmos ayudan a los biólogos a entender cómo se pliega una proteína y cómo
+									su estructura secundaria contribuye a su función biológica.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div id="fh5co-started" class="fh5co-section animate-box"
+			style="background-image: url(static/images/autores.jpg); background-size: 120% auto; background-position: center;"
+			data-stellar-background-ratio="0.3">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>Un Reconocimiento a los Pioneros de la Bioinformática</h2>
+						<p>
+							La bioinformática ha sido moldeada por las contribuciones de numerosos pioneros. Los
+							primeros avances en esta disciplina fueron realizados por científicos visionarios como
+							<strong>Margaret Dayhoff</strong> (1960-1970), quien fundó el primer banco de datos de
+							proteínas y desarrolló la matriz PAM para el alineamiento de secuencias. <strong>Walter
+								Fitch</strong> (1970-1980) y <strong>Michael S. Waterman</strong> (1980) hicieron
+							avances significativos en el análisis filogenético y el alineamiento de secuencias.
+							Posteriormente, <strong>David Lipman</strong> (1990) y <strong>Stephen Altschul</strong>
+							(1990) crearon el algoritmo BLAST, fundamental para la comparación de secuencias biológicas.
+							Más recientemente, <strong>Richard Durbin</strong> (2000) desarrolló modelos estadísticos
+							importantes, <strong>Gene Myers</strong> (2000) contribuyó al análisis de grandes volúmenes
+							de datos genéticos, y <strong>Rafael Irizarry</strong> (2000) ha trabajado en la
+							normalización de datos de microarrays, mejorando el análisis genómico.
+						</p>
+						<p><a href="https://es.wikipedia.org/wiki/Bioinform%C3%A1tica"
+								class="btn btn-primary btn-outline">Visita este sitio Web</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
+			<div class="container">
+				<div class="row row-pb-md">
+					<div class="col-md-4 fh5co-widget">
+						<h4>Sobre Bioinformática</h4>
+						<p>Explora el fascinante mundo de la bioinformática, donde la biología se encuentra con la
+							informática. Aquí abordamos conceptos fundamentales, aplicaciones avanzadas y herramientas
+							clave en el análisis de secuencias biológicas.</p>
+					</div>
+					<div class="col-md-2 col-md-push-1 fh5co-widget">
+						<h4>Enlaces</h4>
+						<ul class="fh5co-footer-links">
+							<li><a href="#fh5co-about">Introducción</a></li>
+							<li><a href="#fh5co-blog">Conceptos Clave</a></li>
+							<li><a href="#transcripcion">Algoritmos</a></li>
+							<!-- <li><a href="#applications">Aplicaciones</a></li> -->
+						</ul>
+					</div>
+
+					<div class="col-md-2 col-md-push-1 fh5co-widget">
+						<h4>Categorías</h4>
+						<ul class="fh5co-footer-links">
+							<li><a href="#transcripcion">Transcripción</a></li>
+							<li><a href="#alineamientos">Alineamiento de Secuencias</a></li>
+							<li><a href="#alineamientos_multiple">Alineamiento Multiple</a></li>
+							<li><a href="#clustering">Clustering</a></li>
+							<li><a href="#filogenia">Filogenia</a></li>
+							<li><a href="#estructura_secundaria">Estructura Secundaria</a></li>
+							<!-- <li><a href="#data-analysis">Análisis de Datos</a></li> -->
+							<li><a href="{{ url_for('index') }}">Herramientas de Software</a></li>
+							<!-- <li><a href="#resources">Recursos</a></li> -->
+						</ul>
+					</div>
+
+					<div class="col-md-4 col-md-push-1 fh5co-widget">
+						<h4>Información de Contacto</h4>
+						<ul class="fh5co-footer-links">
+							<li>Universidad Nacional de San Agustinm de Arequipa</li>
+							<li><a href="tel://925238121">+51 925238121</a></li>
+							<li><a href="mailto:rgutierrezar@unsa.edu.pe">rgutierrezar@unsa.edu.pe</a></li>
+							<li><a href="mailto:fmattosc@unsa.edu.pe">fmattosc@unsa.edu.pe</a></li>
+							<!-- <li><a href="https://bioinformaticaymás.com">bioinformaticaymás.com</a></li> -->
+						</ul>
+					</div>
+				</div>
+
 			</div>
 
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2024 Bioinformática.</small> 
-						<small class="block">Desarrollado por <a href="https://github.com/Ronald-Gutierrez" target="_blank">Ronald Gutierrez</a> y <a href="https://github.com/fm1299" target="_blank">Fabrizio Mattos </a></small>
+						<small class="block">&copy; 2024 Bioinformática.</small>
+						<small class="block">Desarrollado por <a href="https://github.com/Ronald-Gutierrez"
+								target="_blank">Ronald Gutierrez</a> y <a href="https://github.com/fm1299"
+								target="_blank">Fabrizio Mattos </a></small>
 					</p>
 					<p>
-						<ul class="fh5co-social-icons">
-							<!-- <li><a href="#"><i class="icon-twitter2"></i></a></li> -->
-							<!-- <li><a href="#"><i class="icon-facebook2"></i></a></li> -->
-							<li><a href="https://www.linkedin.com/in/ronald-romario-gutierrez-arratia-02ab54242/"><i class="icon-linkedin2"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/fabrizio-mattos-2a9131258/"><i class="icon-linkedin2"></i></a></li>
+					<ul class="fh5co-social-icons">
+						<!-- <li><a href="#"><i class="icon-twitter2"></i></a></li> -->
+						<!-- <li><a href="#"><i class="icon-facebook2"></i></a></li> -->
+						<li><a href="https://www.linkedin.com/in/ronald-romario-gutierrez-arratia-02ab54242/"><i
+									class="icon-linkedin2"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/fabrizio-mattos-2a9131258/"><i
+									class="icon-linkedin2"></i></a></li>
 
-							<!-- <li><a href="#"><i class="icon-arrow-up22"></iclass></a></li> -->
-						</ul>
+						<!-- <li><a href="#"><i class="icon-arrow-up22"></iclass></a></li> -->
+					</ul>
 					</p>
 				</div>
 			</div>
 
-		</div>
+	</div>
 	</footer>
 	</div>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="static/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -620,6 +857,6 @@
 	<!-- Main -->
 	<script src="static/js/main.js"></script>
 
-	</body>
-</html>
+</body>
 
+</html>
