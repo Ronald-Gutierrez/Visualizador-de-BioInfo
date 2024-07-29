@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-# import sys
 import networkx as nx
 import matplotlib
 matplotlib.use('Agg')
