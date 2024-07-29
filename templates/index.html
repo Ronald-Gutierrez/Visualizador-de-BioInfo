@@ -128,7 +128,13 @@
                         </div>    
                         <button id="additionalInputStart" type="button" onclick="addMoreInputs()">Agregar más inputs</button>
                     `;
-                
+
+                }
+                else if (operation == "nj") {
+                    extraInputs.innerHTML = `
+                        <label for="distanceMatrix">Matriz de distancia:</label>
+                        <textarea id="distanceMatrix" name="distanceMatrix" rows="4" placeholder="Ingrese la matriz de distancia" required></textarea>
+                    `;
                 }
                 else if (operation === "upgma") {
                     extraInputs.innerHTML = `
@@ -151,7 +157,7 @@
             `;
             additionalInputs.appendChild(newInput);
         }
-        
+
         window.addEventListener('DOMContentLoaded', (event) => {
             const operation = document.getElementById("operation").value;
             if (operation === "") {
@@ -196,7 +202,7 @@
                         %}>Transcripción de ADN</option>
                     <option value="sub_cadena" {% if operation=='sub_cadena' %} selected {% endif %}>
                         Identificador de Substrings en Secuencias</option>
-                    <option value ="matriz_punto" {% if operation=='matriz_punto' %} selected {% endif %}>
+                    <option value="matriz_punto" {% if operation=='matriz_punto' %} selected {% endif %}>
                         Matriz de Punto</option>
                     <option value="needleman_wunsch" {% if operation=='needleman_wunsch' %} selected {% endif %}">
                         Alineamiento Global</option>
@@ -206,12 +212,17 @@
                         Alineamiento de Proteínas</option>
                     <option value="star_alignment" {% if operation=='star_alignment' %} selected {% endif %}>
                         Alineamiento Estrella</option>
-                    <option value="Clustering Distancia Mínima" {% if operation=='Clustering Distancia Mínima' %} selected {% endif %} required >Clustering Distancia Mínima</option>
-                    <option value="Clustering Distancia Máxima" required>Clustering Distancia Máxima</option>
-                    <option value="Clustering Distancia Promedio" required>Clustering Distancia Promedio</option>
-                    <option value="upgma" {% if operation == 'upgma' %}selected {% endif %} >
+                    <option value="nj" {% if operation=='nj' %} selected {% endif %}>
+                        Neighbor Joining</option>
+                    <option value="Clustering Distancia Mínima" {% if operation=='Clustering Distancia Mínima' %}
+                        selected {% endif %} required>Clustering Distancia Mínima</option>
+                    <option value="Clustering Distancia Máxima" {% if operation=='Clustering Distancia Máxima' %}
+                        selected {% endif %} required>Clustering Distancia Máxima</option>
+                    <option value="Clustering Distancia Promedio" {% if operation=='Clustering Distancia Promedio' %}
+                        selected {% endif %}required>Clustering Distancia Promedio</option>
+                    <option value="upgma" {% if operation=='upgma' %}selected {% endif %}>
                         UPGMA</option>
-                    <option value="structure_secondary" {% if operation == 'structure_secondary' %}selected {% endif %} >
+                    <option value="structure_secondary" {% if operation=='structure_secondary' %}selected {% endif %}>
                         Estructura Secundaria</option>
                 </select><br><br>
 

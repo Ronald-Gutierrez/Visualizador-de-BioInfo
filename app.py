@@ -9,13 +9,14 @@ from algorithms.sub_cadena import calcular_score  # type: ignore
 from algorithms.alineamiento_global import needleman_wunsch_score, globalTraceback  # type: ignore
 from algorithms.local_alignment import smith_waterman
 from algorithms.clustering import clustering
-from algorithms.star_alignment import needleman_wunsch_alignment_star, encontrar_secuencia_central
+from algorithms.star_alignment import needleman_wunsch_alignment_star, encontrar_secuencia_central, align_to_center, merge_alignments
 from algorithms.matriz_punto import dot_matrix, plot_dot_matrix  # type: ignore
 from algorithms.blosum_protein import align_sequences, calculate_alignment_metrics, format_alignment_output, calculate_alignment_score
-from algorithms.estructure_secondary import calculate_energy_matrix, predict_secondary_structure, traceback, plotData, identify_structures
+from algorithms.secondary_structure import predict_secondary_structure, traceback, plotData
 from algorithms.upgma import get_clustering_levels, read_distance_matrix, compute_linkage, calculate_distances_and_differences, plot_dendrogram_with_distances
-from scipy.spatial.distance import squareform
-from scipy.cluster.hierarchy import dendrogram, linkage
+from algorithms.neighbor_joining import neighbor_joining
+# from scipy.spatial.distance import squareform
+# from scipy.cluster.hierarchy import dendrogram, linkage
 import numpy as np
 
 app = Flask(__name__)
@@ -77,10 +78,10 @@ def analizar():
         match = int(match)
         mismatch = int(mismatch)
         gap = int(gap)
-        score = needleman_wunsch_score(
+        score, dp = needleman_wunsch_score(
             sequence1, sequence2, match, mismatch, gap)
         alineaciones = globalTraceback(
-            sequence1, sequence2, match, mismatch, gap)
+            dp, sequence1, sequence2, match, mismatch, gap)
         return render_template('alineamiento_global.html', score=score, alineaciones=alineaciones, sequence1=sequence1, sequence2=sequence2, match=match, mismatch=mismatch, gap=gap, operation=operation)
 
     elif operation == 'smith_waterman':
@@ -142,7 +143,35 @@ def analizar():
         result = needleman_wunsch_alignment_star(
             sequences, match, mismatch, gap)
         find_secuencia_central = encontrar_secuencia_central(result)
-        return render_template('star_alignment.html', sequences=sequences, find_secuencia_central=find_secuencia_central, sequence1=sequence1, sequence2=sequence2, additional_sequences=additional_sequences, result=result, match=match, mismatch=mismatch, gap=gap, operation=operation)
+        index = find_secuencia_central[2]
+        aligned_sequences = align_to_center(
+            sequences, index, match, mismatch, gap)
+        print(len(aligned_sequences))
+        center_seq = sequences[index].ljust(
+            max(len(seq) for seq in sequences), '-')
+        msa = merge_alignments(center_seq, aligned_sequences)
+
+        return render_template('star_alignment.html', sequences=sequences, find_secuencia_central=find_secuencia_central, sequence1=sequence1,
+                               sequence2=sequence2, additional_sequences=additional_sequences, result=result, match=match, mismatch=mismatch, gap=gap, operation=operation, aligned_sequences=aligned_sequences, msa=msa)
+    elif operation == 'nj':
+        matrix_input = request.form.get("distanceMatrix")
+        matrix = []
+        for row in matrix_input.splitlines():
+            # Split each row by spaces and convert to integers
+            matrix.append([float(num) for num in row.split()])
+
+        print(matrix)
+
+        labels = []
+        label = 65
+        for i in range(len(matrix)):
+            labels.append(chr(label))
+            label += 1
+        print(labels)
+
+        filepath = 'static/result_img/neighbor_joining.png'
+        neighbor_joining(matrix, labels, filepath)
+        return render_template('neighbor_joining.html', filepath=filepath, operation=operation)
 
     elif operation == 'Clustering Distancia Mínima':
         matrix_input = request.form.get("distanceMatrix")

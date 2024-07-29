@@ -6,11 +6,14 @@
         width: 10%;
         border-collapse: collapse;
     }
-    th, td {
+
+    th,
+    td {
         border: 2px solid #681d1d;
         padding: 8px;
         text-align: center;
     }
+
     th {
         background-color: #f51111;
         color: #333;
@@ -38,36 +41,32 @@
         <p> Input numero S1: {{ sequence1 }}</p>
         <p> Input numero S2: {{ sequence2 }}</p>
         {% for sequence in additional_sequences %}
-            <p>Input numero S{{ loop.index + 2 }}: {{ sequence }}</p>
+        <p>Input numero S{{ loop.index + 2 }}: {{ sequence }}</p>
         {% endfor %}
         <h3>Matriz de Score</h3>
         <table>
             {% for row in result %}
-                <tr>
-                    {% for item in row %}
-                        <td>{{ item }}</td>
-                    {% endfor %}
-                </tr>
+            <tr>
+                {% for item in row %}
+                <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
             {% endfor %}
         </table>
         <h3>Secuencia Central</h3>
-        <p>La secuencia central es <strong>{{ find_secuencia_central[0] }}</strong> con la suma de score de <strong>{{ find_secuencia_central[1] }}</strong></p>
+        <p>La secuencia central es <strong>{{ find_secuencia_central[0] }}</strong> con la suma de score de <strong>{{
+                find_secuencia_central[1] }}</strong></p>
     </div>
     <div class="column">
         <h3>Secuencias alineadas con <strong>{{ find_secuencia_central[0] }}</strong>:</h3>
-        <p> {{alignments_star}}</p>
-        <ul>alineamiento 1 </ul>
-        <ul>alineamiento 2 </ul>
-        <ul>alineamiento 3 </ul>
-        <ul>alineamiento 4 </ul>
+        {% for al in aligned_sequences %}
+        <ul>Alineamiento {{loop.index}}: {{al}}</ul>
+        {% endfor %}
 
         <h3>Alineamiento Multiple <strong>{{ find_secuencia_central[0] }}</strong>:</h3>
-        <p> {{alignments_star}}</p>
-        <ul>alineamiento 1 </ul>
-        <ul>alineamiento 2 </ul>
-        <ul>alineamiento 3 </ul>
-        <ul>alineamiento 4 </ul>
-
+        {% for m in msa %}
+        <ul>{{m}}</ul>
+        {% endfor %}
     </div>
 
 </div>
