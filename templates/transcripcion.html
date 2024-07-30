@@ -6,6 +6,7 @@
         display: flex;
         flex-wrap: wrap;
     }
+
     .sequence span {
         display: inline-block;
         padding: 5px;
@@ -17,30 +18,66 @@
     }
 
     /* ADN colors */
-    .adn.A { background-color: #00ff00; } /* Verde */
-    .adn.T { background-color: #ff0000; } /* Rojo */
-    .adn.C { background-color: #0000ff; } /* Azul */
-    .adn.G { background-color: #ffa500; } /* Naranja */
+    .adn.A {
+        background-color: #00ff00;
+    }
+
+    /* Verde */
+    .adn.T {
+        background-color: #ff0000;
+    }
+
+    /* Rojo */
+    .adn.C {
+        background-color: #0000ff;
+    }
+
+    /* Azul */
+    .adn.G {
+        background-color: #ffa500;
+    }
+
+    /* Naranja */
 
     /* ARN colors */
-    .arn.A { background-color: #00ff00; } /* Verde */
-    .arn.U { background-color: #ff0000; } /* Rojo */
-    .arn.C { background-color: #0000ff; } /* Azul */
-    .arn.G { background-color: #ffa500; } /* Naranja */
+    .arn.A {
+        background-color: #00ff00;
+    }
+
+    /* Verde */
+    .arn.U {
+        background-color: #ff0000;
+    }
+
+    /* Rojo */
+    .arn.C {
+        background-color: #0000ff;
+    }
+
+    /* Azul */
+    .arn.G {
+        background-color: #ffa500;
+    }
+
+    /* Naranja */
 </style>
 <h2>Resultados de la Secuencia Ingresada</h2>
+{% if run %}
 <p>Tu secuencia ingresada de ADN es:<br>
-    <div class="sequence">
-        {% for nucleotide in sequence %}
-            <span class="adn {{ nucleotide }}">{{ nucleotide }}</span>
-        {% endfor %}
-    </div>
+<div class="sequence">
+    {% for nucleotide in sequence %}
+    <span class="adn {{ nucleotide }}">{{ nucleotide }}</span>
+    {% endfor %}
+</div>
 </p>
 <p>Tu secuencia transcrita es:<br>
-    <div class="sequence">
-        {% for nucleotide in result %}
-            <span class="arn {{ nucleotide }}">{{ nucleotide }}</span>
-        {% endfor %}
-    </div>
+<div class="sequence">
+    {% for nucleotide in result %}
+    <span class="arn {{ nucleotide }}">{{ nucleotide }}</span>
+    {% endfor %}
+</div>
 </p>
+{% else %}
+<h3>La secuencia ingresada debe ser de ADN</h3>
+{% endif %}
 {% endblock %}

@@ -53,8 +53,13 @@ def analizar():
         cantidad = len(sequence)
         return render_template('identificador_sec.html', result=result, cantidad=cantidad, sequence=sequence, operation=operation)
     elif operation == 'transcripcion_adn_arn':
-        result = transcripcion_adn_arn(sequence)
-        return render_template('transcripcion.html', result=result, sequence=sequence, operation=operation)
+        ej = False
+        if identificar_secuencia(sequence) == 'ADN':
+            ej = True
+            result = transcripcion_adn_arn(sequence)
+            return render_template('transcripcion.html', run=ej, result=result, sequence=sequence, operation=operation)
+        else:
+            return render_template('transcripcion.html', run=ej)
     elif operation == 'matriz_punto':
         # Llamar a la función de matriz de puntos
         points = dot_matrix(sequence1, sequence2)
@@ -105,7 +110,6 @@ def analizar():
         }
 
         blocksize = 10
-
         if blosumSize.isdigit():
             blocksize = int(blosumSize)
         matrix_name = matrix_options.get(matrix_choice, "BLOSUM62")
@@ -219,10 +223,16 @@ def analizar():
             'UA': -1
         }
         filepath = 'static/result_img/grafico.png'
-        E, score = predict_secondary_structure(sequence, alpha)
-        traceback_pairs = traceback(sequence, E, alpha)
-        plotData(sequence, traceback_pairs[1], filepath)
-        return render_template('structure_secondary.html', sequence=sequence, E=E, score=score, filepath=filepath, traceback_pairs=traceback_pairs, operation=operation)
+        run = False
+        if (identificar_secuencia(sequence) == 'ARN'):
+            run = True
+            E, score = predict_secondary_structure(sequence, alpha)
+            traceback_pairs = traceback(sequence, E, alpha)
+            plotData(sequence, traceback_pairs[1], filepath)
+            return render_template('structure_secondary.html', run=run, sequence=sequence, E=E, score=score, filepath=filepath, traceback_pairs=traceback_pairs, operation=operation)
+        else:
+            return render_template('structure_secondary.html', run=run)
+
     elif operation == 'upgma':
         matrix_input = request.form.get("distanceMatrix")
         matrix = []

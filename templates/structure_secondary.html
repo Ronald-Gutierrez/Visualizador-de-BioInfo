@@ -5,12 +5,15 @@
     .row {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px; /* Espacio entre las columnas */
+        gap: 20px;
+        /* Espacio entre las columnas */
     }
 
     .column {
-        flex: 1; /* Ajusta las columnas para que se adapten al espacio disponible */
-        min-width: 300px; /* Ancho mínimo para columnas */
+        flex: 1;
+        /* Ajusta las columnas para que se adapten al espacio disponible */
+        min-width: 300px;
+        /* Ancho mínimo para columnas */
         box-sizing: border-box;
     }
 
@@ -46,23 +49,27 @@
     table {
         width: 90%;
         border-collapse: collapse;
-        margin: 10px auto; /* Centra la tabla */
+        margin: 10px auto;
+        /* Centra la tabla */
     }
 
-    th, td {
+    th,
+    td {
         border: 2px solid #681d1d;
         padding: 2px;
         text-align: center;
     }
 
     .scrollable-table {
-        max-height: 50%; /* Ajusta la altura según sea necesario */
+        max-height: 50%;
+        /* Ajusta la altura según sea necesario */
         overflow-y: auto;
         display: block;
     }
 
     .scrollable-list {
-        max-height: 200px; /* Ajusta la altura según sea necesario */
+        max-height: 200px;
+        /* Ajusta la altura según sea necesario */
         overflow-y: auto;
     }
 </style>
@@ -71,7 +78,7 @@
 
 <h3>Secuencia</h3>
 <p>{{ sequence }}</p>
-
+{% if run%}
 <h3>Matriz de Energía</h3>
 
 <!-- Contenedor de dos columnas -->
@@ -86,18 +93,18 @@
                     <tr>
                         <th></th>
                         {% for base in sequence %}
-                            <th>{{ base }}</th>
+                        <th>{{ base }}</th>
                         {% endfor %}
                     </tr>
                 </thead>
                 <tbody>
                     {% for i in range(sequence|length) %}
-                        <tr>
-                            <th>{{ sequence[i] }}</th>
-                            {% for j in range(sequence|length) %}
-                                <td>{{ E[i][j] }}</td>
-                            {% endfor %}
-                        </tr>
+                    <tr>
+                        <th>{{ sequence[i] }}</th>
+                        {% for j in range(sequence|length) %}
+                        <td>{{ E[i][j] }}</td>
+                        {% endfor %}
+                    </tr>
                     {% endfor %}
                 </tbody>
             </table>
@@ -105,7 +112,7 @@
 
             <ul>
                 {% for pair in traceback_pairs[1] %}
-                    <li>{{ pair[0] }} - {{ pair[1] }}</li>
+                <li>{{ pair[0] }} - {{ pair[1] }}</li>
                 {% endfor %}
             </ul>
 
@@ -125,5 +132,8 @@
         </div>
     </div>
 </div>
+{% else %}
+<h3>La secuencia debe ser ARN</h3>
+{% endif %}
 
 {% endblock %}
